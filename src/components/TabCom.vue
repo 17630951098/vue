@@ -1,11 +1,91 @@
 <template>
-    $END$
+    <div class="TabCom" v-if="tabdata">
+        <div class="item" v-for="(item,index) in tabdata">
+            <div class="img">
+                <img :src="item.imgUrl">
+            </div>
+            <div class="right">
+                <p>{{item.goodsName}}</p>
+                <p>
+                    <van-tag color="#f2826a" plain>{{item.address}}</van-tag>
+                    &emsp; &emsp;
+                    <van-tag color="#f2826a">{{'2件'+(Math.random()*10-2).toFixed(0)+'折'}}</van-tag>
+                </p>
+                <p v-if="item.price.length<10&&item.price.length!=0">{{item.price}}</p>
+                <p v-else>£{{(Math.random()*100-10).toFixed(2)}}</p>
+                <p>参考价：￥{{Math.abs((Math.random()*800-100).toFixed(2))}}</p>
+                <button class="btn">
+                    加入购物篮
+                </button>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-    export default {}
+    export default {
+        props:['tabdata','n'],
+        created() {
+            // console.log(this)
+            // console.log(this.tabdata)
+        }
+    }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+.TabCom{
+    .item{
+        display: flex;
+        border-bottom: 1px solid #e8e8e8;
+        border-top: none;
+        padding: .4rem;
+        .img{
+            width: 32%;
+            height: 2.4rem;
+            img{
+                width: 100%;
+            }
+        }
+        .right{
+            position: relative;
+            width: 68%;
+            padding-left: .2rem;
+            P:nth-child(1){
+                height: .76rem;
+                font-size: .28rem;
+                color: #333;
+                white-space: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            P:nth-child(2){
+                margin-top: 0.1rem;
+            }
+            P:nth-child(3){
+                margin-top: 0.3rem;
+                font-size: .3rem;
+                color: #1b1a19;
+            }
+            P:nth-child(4){
+                margin-top: .05rem;
+                font-size: .24rem;
+                color: #999;
+            }
+            .btn{
+                position: absolute;
+                width: 1.8rem;
+                height: .68rem;
+                background-color: #1b1a19;
+                color: #fff;
+                line-height: .68rem;
+                font-size: .28rem;
+                right: .3rem;
+                bottom: .1rem;
+                border-radius: .02rem;
+                border: 0;
+                outline: none;
+            }
+        }
+    }
+}
 </style>

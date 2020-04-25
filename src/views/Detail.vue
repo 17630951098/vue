@@ -1,5 +1,7 @@
 <template>
-    $END$
+    <div class="detail">
+    
+    </div>
 </template>
 
 <script>

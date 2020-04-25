@@ -1,5 +1,7 @@
 <template>
-    $END$
+    <div class="brand">
+    
+    </div>
 </template>
 
 <script>

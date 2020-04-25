@@ -1,5 +1,7 @@
 <template>
-    $END$
+    <div class="cart">
+    
+    </div>
 </template>
 
 <script>

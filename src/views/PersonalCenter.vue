@@ -1,5 +1,7 @@
 <template>
-    $END$
+    <div class="PersonalCenter">
+    
+    </div>
 </template>
 
 <script>

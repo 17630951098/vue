@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*home轮播*/
+.van-swipe .van-swipe__indicators .van-swipe__indicator {
+    width: 0.4rem;
+    height: 0.06rem;
+    background: #a89e9e;
+    opacity: 1;
+    border-radius: 0.03rem;
+}
+
+.van-swipe .van-swipe__indicators .van-swipe__indicator--active{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.van-tabs .van-tab--active{
+    border-color: #000000;
+}
+/*background-color: rgba (0, 0, 0, 0.7);*/
