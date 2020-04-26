@@ -241,7 +241,50 @@
                     <TabCom v-if="inActive==1" :toptab="topTab.slice(0,6)">
                     
                     </TabCom>
+                    <TabCom v-if="inActive==2" :toptab="topTab.slice(6,12)">
+                    
+                    </TabCom>
+                    <TabCom v-if="inActive==3" :toptab="topTab.slice(12,18)">
+                    
+                    </TabCom>
                 </div>
+            </div>
+            <!--查看更多-->
+            <div class="more">
+                查看更多 &gt;
+            </div>
+        </section>
+        <section class="index_promise">
+            <div class="container">
+                <!--tou-->
+                <div class="title">
+                    <img src="https://fu-assets.azoyacdn.com/active/img/mb-fu.png" alt="">
+                    <p>关注官方帐号，获取更多福利咨询</p>
+                </div>
+                <!--guanzhu-->
+                <ul class="social">
+                    <li>
+                        <div class="left">
+                            <img src="https://fu-assets.azoyacdn.com/active/img/mb-f.png" alt="">
+                            <div class="txt">
+                                <p>微博账号<br>@FEELUNIQUE-UK</p>
+                            </div>
+                        </div>
+                        <img src="https://fu-assets.azoyacdn.com/active/img/mb-guanzhu.png" class="add">
+                    </li>
+                    <li>
+                        <div class="left">
+                            <img src="https://fu-assets.azoyacdn.com/active/img/mb-code.png" alt="">
+                            <div class="txt">
+                                <p>微信账号<br>FEELUNIQUE</p>
+                            </div>
+                        </div>
+                        <img src="https://fu-assets.azoyacdn.com/active/img/mb-saoma.png" class="add">
+                    </li>
+                </ul>
+                <ul class="bbb">
+                
+                </ul>
             </div>
         </section>
     </div>
@@ -318,7 +361,7 @@
             //tab 切换
             this.$api.getHomeTableAPI({}).then(res=>{
                 this.topTab=res.data;
-                console.log(res);
+                // console.log(res);
             });
             /*brand api*/
             this.$api.getHomeBrandAPI({}).then(res=>{
@@ -372,6 +415,59 @@
     /*    display: none;*/
     /*}*/
     .home {
+        .index_promise{
+            padding-top: .2rem;
+            background-color: #f0f0f0;
+            .container{
+                background-color: #FFFFFF;
+                .title{
+                    padding-top: .5rem;
+                    text-align: center;
+                    img{
+                        width: 70%;
+                    }
+                    p{
+                        margin-top: 0.24rem;
+                        display: block;
+                        font-size: .24rem;
+                        color: #1b1a19;
+                    }
+                }
+                .social{
+                    margin-top: 0.2rem;
+                    padding: 0 .24rem .24rem;
+                    background-color: #fff;
+                    overflow: hidden;
+                    li{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding:0.24rem;
+                        margin-bottom: .1rem;
+                        background-color: #f0f0f0;
+                        .left{
+                            display: flex;
+                            align-items: center;
+                            img{
+                                width: 1.2rem;
+                            }
+                            .txt{
+                                p:nth-child(1){
+                                    margin-left: .24rem;
+                                    font-size: .24rem;
+                                    line-height: .42rem;
+                                    color: #333;
+                                }
+                            }
+                        }
+                        .add{
+                            width: 1.8rem;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
         /*发现心头好*/
         .index_topList{
             background-color: #f0f0f0;
@@ -405,6 +501,13 @@
                    }
                }
            }
+            .more{
+                line-height: .8rem;
+                text-align: center;
+                background-color: #FFFFFF;
+                font-size: .26rem;
+                color: #999;
+            }
         }
     /*<!-- 小编精选-- >*/
         .index_search{
@@ -467,7 +570,7 @@
            
         }
         /*background-color: #F0F0F0;*/
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         
         .header {
             width: 100%;
