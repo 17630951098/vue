@@ -22,6 +22,10 @@ let getHomeTabListAPI = (data) => {
 let getHomeBrandAPI = (data) => {
     return axios.get('/home/brand.php', data)
 };
+//首页table切换2
+let getHomeTableAPI = (data) => {
+    return axios.get('/home/tablechange.php', data)
+};
 export {
-    getHomeBannerDataAPI, getHomeDataAPI, getHomeIconAPI, getHomeTabListAPI, getHomeBrandAPI
+    getHomeBannerDataAPI, getHomeDataAPI, getHomeIconAPI, getHomeTabListAPI, getHomeBrandAPI, getHomeTableAPI
 }

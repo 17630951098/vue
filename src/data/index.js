@@ -1613,4 +1613,186 @@ let brand= [
         "success_price": "参考价：￥516.03"
     }
 ];
-export {bannerData, homeData, homeSmallIcon, tabList, brand};
+let homeTable= [
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/l/a/laroc_cosmetics_the_chocolate_box_palette_1583395838.jpg?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "LaRoc Cosmetics 多彩亮肤遮瑕修容盘",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£24.99",
+        "lag": "",
+        "suggest_price": "",
+        "market_price": "参考价：￥218.57",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/5/6/56618_1579601065.jpg?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "wet n wild MegaGlo Blushlighter 10g Highlight Bling",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£5.19",
+        "lag": "20%OFF",
+        "suggest_price": "£6.49",
+        "market_price": "参考价：￥45.39",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/e/_/e_l_f_earth_amp_ocean_eyeshadow_palette_17g_1584440436_2.jpg?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "e.l.f. Earth &amp; Ocean 18色亮彩修容眼影盘 17g",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£11.20",
+        "lag": "20%OFF",
+        "suggest_price": "£14.00",
+        "market_price": "参考价：￥97.96",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/s/c/scott_barnes_sculpting_and_contour_no1_palette_1575456348.jpg?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "Scott Barnes 修饰轮廓美妆调色盘 No1 Palette",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£37.10",
+        "lag": "30%OFF",
+        "suggest_price": "£53.00",
+        "market_price": "参考价：￥324.49",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/5/6/56894_1582794403.jpg?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "Lime Crime 丝绒哑光唇膏口红 2g Firecracker",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£16.10",
+        "lag": "30%OFF",
+        "suggest_price": "£23.00",
+        "market_price": "参考价：￥140.82",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/5/7/57137_1584368101_2.jpg?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "e.l.f. 果冻啫喱亮肤修容腮红 13ml Peach Pop",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£4.80",
+        "lag": "20%OFF",
+        "suggest_price": "£6.00",
+        "market_price": "参考价：￥41.98",
+        "addCart": "已售罄"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/b/u/Burt_rsquo_s_Bees_reg__Essential_Burt_rsquo_s_Bees_reg__Kit_1493280283.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "Burt's Bees 小蜜蜂 精选五件套装礼盒 洁面乳20g+护手霜8.5g+身体乳25g+护足霜25g+润唇膏4.25g",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£12.99",
+        "lag": "",
+        "suggest_price": "",
+        "market_price": "参考价：￥113.61",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/e/l/ELEMIS_Sp_Home_Japanese_Camellia_Oil_Blend_100ml_1487329266.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "ELEMIS 艾丽美 家庭Spa日本山茶花润肤油 100ml",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£30.00",
+        "lag": "25%OFF",
+        "suggest_price": "£40.00",
+        "market_price": "参考价：￥262.39",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/p/a/Palmer__039_s_Cocoa_Butter_Formula_Body_Lotion_400ml_1485254301.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "Palmer's 帕玛氏/雅儿 可可脂保湿身体乳 400ml",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£4.98",
+        "lag": "17%OFF",
+        "suggest_price": "£6.00",
+        "market_price": "参考价：￥43.56",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/p/a/Palmer__039_s_Cocoa_Butter_Formula_Moisturizing_Body_Oil_250ml_1498032436.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "Palmer's 帕玛氏/雅儿 可可脂保湿身体按摩油 250ml",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£4.97",
+        "lag": "17%OFF",
+        "suggest_price": "£5.99",
+        "market_price": "参考价：￥43.47",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/m/o/MOR_Marshmallow_Sugar_Crystal_Body_Scrub_600g_1496838896.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "MOR 棉花糖冰晶砂糖身体磨砂 600g",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£23.00",
+        "lag": "买三免一",
+        "suggest_price": "",
+        "market_price": "参考价：￥201.16",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/p/h/philosophy_nbsp_amazing_grace_firming_body_emulsion_480ml_1463745008.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "philosophy 自然哲理 无上优雅紧致身体乳 480ml",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£25.08",
+        "lag": "15%OFF",
+        "suggest_price": "£29.50",
+        "market_price": "参考价：￥219.36",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/l/i/Lime_Crime_Aquarium_Brush_Set_1522143265.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "Lime Crime 独角兽 人鱼姬系列化妆刷七件套装",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£35.70",
+        "lag": "30%OFF",
+        "suggest_price": "£51.00",
+        "market_price": "参考价：￥312.24",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/t/h/The_Vintage_Cosmetic_Company_Blending_Sponge_Infused_With_Collagen_in_Pink_1489655531.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "The Vintage Cosmetic Company 复古红妆 粉色胶原蛋白海绵美妆蛋",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£5.95",
+        "lag": "",
+        "suggest_price": "",
+        "market_price": "参考价：￥52.04",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/e/m/Emma_Hardie_Amazing_Face_Dual_Action_Professional_Cleansing_Cloths_x3_1393937770.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "Emma Hardie 辣木卸妆膏专用双效洁面巾 3片装",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£18.00",
+        "lag": "",
+        "suggest_price": "",
+        "market_price": "参考价：￥157.43",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/b/r/Brushworks_Mini_Set_1519305578.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "Brushworks 迷你化妆刷四件套装 散粉刷+腮红刷+眼影刷+遮瑕刷",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£6.69",
+        "lag": "33%OFF",
+        "suggest_price": "£9.99",
+        "market_price": "参考价：￥58.51",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/s/i/Sigma_Travel_Kit___Mr_Bunny_1462450750_2.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "Sigma 兔子先生便携式旅行七件化妆刷套装 E30/E40/E55/E65/F30/F40/F60",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£58.10",
+        "lag": "18%OFF",
+        "suggest_price": "£70.85",
+        "market_price": "参考价：￥508.16",
+        "addCart": "加入购物篮"
+    },
+    {
+        "src": "https://source-feelunique.azoyacdn.com/media/catalog/product/s/i/Sigma_Dry__039_n_Shape_reg__Spa_1472625775_2.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
+        "name": "Sigma 化妆刷晾干刷筒架",
+        "address": "https://source-feelunique.azoyacdn.com/media/wysiwyg/cang/mb-uk-list-icon.png",
+        "price": "£32.80",
+        "lag": "18%OFF",
+        "suggest_price": "£40.00",
+        "market_price": "参考价：￥286.88",
+        "addCart": "加入购物篮"
+    }
+]
+export {bannerData, homeData, homeSmallIcon, tabList, brand, homeTable};

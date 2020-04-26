@@ -31,7 +31,7 @@
         </div>
         <!--顶部 end-->
         <!--轮播图-->
-        <van-swipe :width="'100%'" :autoplay="3500" v-if="bannerData">
+        <van-swipe :width="'100%'" :autoplay="3500" v-if="bannerData" :key="index">
             <van-swipe-item v-for="(image, index) in bannerData" :key="index">
                 <img style="width: 100%;" :src="image.image_url"/>
             </van-swipe-item>
@@ -191,7 +191,7 @@
                 </div>
                 <!--轮播-->
                 <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-                    <van-swipe-item v-for="(item,index) in img">
+                    <van-swipe-item v-for="(item,index) in img" :key="index">
                         <img  style="width: 100%" :src="item" alt="">
                     </van-swipe-item>
                 </van-swipe>
@@ -289,6 +289,11 @@
         },
         computed: {},
         created() {
+            //tab 切换
+            this.$api.getHomeTableAPI({}).then(res=>{
+                console.log(res);
+            });
+            /*brand api*/
             this.$api.getHomeBrandAPI({}).then(res=>{
                 this.brandData=res.data;
                 // console.log(res);

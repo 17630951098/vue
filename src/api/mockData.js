@@ -29,5 +29,10 @@ mock.mock("http://kk.com/home/brand.php", function () {
     // console.log(res);
     return res;
 });
+mock.mock("http://kk.com/home/tablechange.php", function () {
+    let res = data.homeTable;
+    // console.log(res);
+    return res;
+});
 
 export { mock };
