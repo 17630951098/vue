@@ -31,7 +31,7 @@
         </div>
         <!--顶部 end-->
         <!--轮播图-->
-        <van-swipe :width="'100%'" :autoplay="3500" v-if="bannerData" :key="index">
+        <van-swipe :width="'100%'" :autoplay="3500" v-if="bannerData">
             <van-swipe-item v-for="(image, index) in bannerData" :key="index">
                 <img style="width: 100%;" :src="image.image_url"/>
             </van-swipe-item>
@@ -151,31 +151,31 @@
             <div class="container">
                 <h2 class="recommend-title">热销推荐</h2>
                 <van-tabs v-model="active" v-if="tabData">
-                    <van-tab @click="changeTable(1)" title="超值推荐">
+                    <van-tab title="超值推荐">
                         
-                        <TabCom :tabdata="tabData.slice(0, 12)" :n="n"></TabCom>
+                        <TabCom :tabdata="tabData.slice(0, 12)"></TabCom>
                         
                     </van-tab>
-                    <van-tab @click="changeTable(2)" title="香港仓推荐">
+                    <van-tab  title="香港仓推荐">
                         
-                        <TabCom :tabdata="tabData.slice(12, 24)" :n="n"></TabCom
+                        <TabCom :tabdata="tabData.slice(12, 24)" ></TabCom
                         >
                     </van-tab>
-                    <van-tab @click="changeTable(3)" title="美妆工具">
+                    <van-tab title="美妆工具">
                         
-                        <TabCom :tabdata="tabData.slice(24, 36)" :n="n"></TabCom
-                        >
-                        
-                    </van-tab>
-                    <van-tab @click="changeTable(4)" title="送给她">
-                        
-                        <TabCom :tabdata="tabData.slice(36, 48)" :n="n"></TabCom
+                        <TabCom :tabdata="tabData.slice(24, 36)" ></TabCom
                         >
                         
                     </van-tab>
-                    <van-tab @click="changeTable(5)" title="送给他">
+                    <van-tab  title="送给她">
                         
-                        <TabCom :tabdata="tabData.slice(48, 60)" :n="n"></TabCom
+                        <TabCom :tabdata="tabData.slice(36, 48)" ></TabCom
+                        >
+                        
+                    </van-tab>
+                    <van-tab title="送给他">
+                        
+                        <TabCom :tabdata="tabData.slice(48, 60)" ></TabCom
                         >
                         
                     </van-tab>
@@ -183,7 +183,7 @@
             </div>
         </section>
         <!--精选品牌-->
-        <div class="index_like">
+        <section class="index_like">
             <div class="container">
                 <div class="head">
                     <h3>精选品牌</h3>
@@ -203,9 +203,9 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </section>
         <!--小编精选-->
-        <div class="index_search">
+        <section class="index_search">
             <div class="container">
                 <div class="head">
                     <h3>小编精选</h3>
@@ -225,7 +225,25 @@
                 </div>
                 <HomeScroll :data="brandData.slice(18,27)"></HomeScroll>
             </div>
-        </div>
+        </section>
+        <!--发现心头好-->
+        <section class="index_topList">
+            <div class="topList">
+                <div class="title">
+                    发现新头好
+                </div>
+                <ul class="tab">
+                    <li :class="inActive==1?'active':''" @click="changeActive(1)">小众美妆</li>
+                    <li :class="inActive==2?'active':''" @click="changeActive(2)">身体护理</li>
+                    <li :class="inActive==3?'active':''" @click="changeActive(3)">彩妆工具</li>
+                </ul>
+                <div v-if="topTab">
+                    <TabCom v-if="inActive==1" :toptab="topTab.slice(0,6)">
+                    
+                    </TabCom>
+                </div>
+            </div>
+        </section>
     </div>
 </template>
 
@@ -239,12 +257,15 @@
         data() {
             return {
                 /*banner数据*/
+                /*banner数据*/
                 bannerData: "",
+                // 10
                 iconData: "",
+                // 列表
                 HomeData: "",
+                // 热销推荐
                 tabData: '',
                 active: 0,
-                n: 1,
                 img: [
                     '//img-resource.azoyacdn.com/media/f91794f12d2f4c5d73f1cd2449370ede/66735/1bcad4bc4c69f60b8bddd3f887b56921.jpg',
                     '//img-resource.azoyacdn.com/media/f91794f12d2f4c5d73f1cd2449370ede/86150/74a220040461e0a7709d818274f5ca28.jpg',
@@ -277,20 +298,26 @@
                     }
                 ],
                 brandData:'',
+                //激活状态
+                inActive:1,
+                //toptab 切换数据
+                topTab:'',
             };
         },
         components: {
             TabCom, HomeScroll
         },
         methods: {
-            changeTable(index) {
-                this.n = index;
-            },
+            //发现心头好Tab切换
+           changeActive(type){
+               this.inActive=type;
+           },
         },
         computed: {},
         created() {
             //tab 切换
             this.$api.getHomeTableAPI({}).then(res=>{
+                this.topTab=res.data;
                 console.log(res);
             });
             /*brand api*/
@@ -345,6 +372,40 @@
     /*    display: none;*/
     /*}*/
     .home {
+        /*发现心头好*/
+        .index_topList{
+            background-color: #f0f0f0;
+            padding-top: .2rem;
+            overflow: hidden;
+           .topList{
+               background-color: #FFFFFF;
+               div.title{
+                   line-height: .9rem;
+                   text-align: center;
+                   font-size: .32rem;
+                   color: #333;
+               }
+               .tab{
+                   display: flex;
+                   li{
+                       width: 33%;
+                       line-height: .8rem;
+                       border: 1px solid #ececec;
+                       color: #666;
+                       font-size: .28rem;
+                       overflow: hidden;
+                       text-align: center;
+                       border-right: 0;
+                   }
+                   .active{
+                       border: none;
+                       border-top: .04rem solid #1b1a19;
+                       font-weight: 700;
+                       color: #333;
+                   }
+               }
+           }
+        }
     /*<!-- 小编精选-- >*/
         .index_search{
             background-color: #f0f0f0;
