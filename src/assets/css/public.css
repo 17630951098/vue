@@ -29,4 +29,28 @@ a {
 .van-tabs .van-tab--active{
     border-color: #000000;
 }
+
+.van-collapse .van-collapse-item .van-cell{
+    padding: .25rem 0;
+    background-color: #444;
+    color: white;
+}
+
+.van-collapse .van-collapse-item .van-collapse-item__wrapper .van-collapse-item__content{
+    padding-left: 0;
+    background-color: #444;
+}
+
+.van-collapse .van-collapse-item  .van-cell:not(:last-child)::after {
+    position: absolute;
+    box-sizing: border-box;
+    content: ' ';
+    pointer-events: none;
+    right: 0;
+    bottom: 0;
+    left: 16px;
+    border: 0;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+}
 /*background-color: rgba (0, 0, 0, 0.7);*/

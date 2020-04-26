@@ -24,14 +24,16 @@
                 </div>
             </div>
             <!--search-->
-            <div class="search">
-                <img src="../assets/images/search.png"/>
-                <span>搜索商品/品牌</span>
+            <div class="head_box">
+                <div class="search">
+                    <img src="../assets/images/search.png"/>
+                    <span>搜索商品/品牌</span>
+                </div>
             </div>
         </div>
         <!--顶部 end-->
         <!--轮播图-->
-        <van-swipe :width="'100%'" :autoplay="3500" v-if="bannerData">
+        <van-swipe class="ban" :width="'100%'" :autoplay="3500" v-if="bannerData">
             <van-swipe-item v-for="(image, index) in bannerData" :key="index">
                 <img style="width: 100%;" :src="image.image_url"/>
             </van-swipe-item>
@@ -226,6 +228,30 @@
                 <HomeScroll :data="brandData.slice(18,27)"></HomeScroll>
             </div>
         </section>
+        <!--猜你喜欢-->
+        <van-divider
+                :style="{ backgroundColor: '#f0f0f0',padding:'0.1rem' }"
+        >
+        </van-divider>
+        <div class="percentage-container">
+            <div class="title">
+                <p>猜你喜欢</p>
+                <div class="icon" @click="cahngeYourLike">
+                    <van-icon size="0.24rem" name="exchange"/><span>换一换</span>
+                </div>
+            </div>
+            <div class="con">
+                <home-two-types v-if="yourLikeCount==1" :popdata="HomeData.slice(0,8)">
+                
+                </home-two-types>
+                <home-two-types v-else-if="yourLikeCount==2" :popdata="HomeData.slice(8,16)">
+    
+                </home-two-types>
+                <home-two-types v-else :popdata="HomeData.slice(16,24)">
+    
+                </home-two-types>
+            </div>
+        </div>
         <!--发现心头好-->
         <section class="index_topList">
             <div class="topList">
@@ -282,23 +308,148 @@
                         <img src="https://fu-assets.azoyacdn.com/active/img/mb-saoma.png" class="add">
                     </li>
                 </ul>
+                <van-divider
+                        :style="{ backgroundColor: '#f0f0f0',height:'0.2rem' }"
+                >
+                </van-divider>
                 <ul class="bbb">
-                
+                    <li>
+                        <img src="https://fu-assets.azoyacdn.com/active/img/mb-icon-1.png" alt="">
+                        <div class="right">
+                            <p>无忧购物</p>
+                            <p>中国大陆 满额免邮</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://fu-assets.azoyacdn.com/active/img/mb-icon-2.png" alt="">
+                        <div class="right">
+                            <p>汇聚美妆</p>
+                            <p>数百品牌 数万单品</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://fu-assets.azoyacdn.com/active/img/mb-icon-3.png" alt="">
+                        <div class="right">
+                            <p>便捷支付</p>
+                            <p>银联+支付宝集成</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://fu-assets.azoyacdn.com/active/img/mb-icon-4.png" alt="">
+                        <div class="right">
+                            <p>[品牌授权]</p>
+                            <p>100%正规渠道</p>
+                        </div>
+                    </li>
                 </ul>
+                <van-divider
+                        :style="{ backgroundColor: '#f0f0f0',height:'0.2rem' }"
+                >
+                </van-divider>
+                <div class="money">今日参考汇率:1英镑=8.8人民币</div>
+                <van-divider
+                        :style="{ backgroundColor: '#f0f0f0',height:'0.2rem' }"
+                >
+                </van-divider>
+                <!--手风琴-->
+                <div class="handPiano">
+                    <van-collapse v-model="activeName" accordion>
+                        <van-collapse-item title="关于我们" name="1">
+                            <ul class="item" >
+                                <li>关于我们</li>
+                                <li>服务条款</li>
+                                <li>隐私政策</li>
+                                <li>消费者告知书</li>
+                            </ul>
+                        </van-collapse-item>
+                        <van-collapse-item title="税费政策" name="2">
+                            <ul class="item">
+                                <li>税费补贴说明：</li>
+                                <li>
+                                    从2020年3月13日起，凡在Feelunique中文官网英国仓下单可享受折后80英镑包邮，如被税将由商家代缴税金，用户无需向海关缴税；香港仓下单的用户享受税费补贴政策，期间订单按照相关法律法规及政策缴纳相应税金的，用户自行缴纳税款后凭海关出具的完税证明及订单编号，通过您的网站注册邮箱发送到中文客服china@feelunique.com，领取20英镑无门槛税金补贴优惠券（每优惠券限用一次，下次购物可使用）拒收及退运的订单不适用于本活动，部分折扣优惠不能使用。</li>
+                            </ul>
+                        </van-collapse-item>
+                        <van-collapse-item title="正品承诺" name="3">
+                            <ul class="item">
+                                <li>税费补贴说明：</li>
+                                <li>
+                                    从2020年3月13日起，凡在Feelunique中文官网英国仓下单可享受折后80英镑包邮，如被税将由商家代缴税金，用户无需向海关缴税；香港仓下单的用户享受税费补贴政策，期间订单按照相关法律法规及政策缴纳相应税金的，用户自行缴纳税款后凭海关出具的完税证明及订单编号，通过您的网站注册邮箱发送到中文客服china@feelunique.com，领取20英镑无门槛税金补贴优惠券（每优惠券限用一次，下次购物可使用）拒收及退运的订单不适用于本活动，部分折扣优惠不能使用。</li>
+                            </ul>
+                        </van-collapse-item>
+                        <van-collapse-item title="活动规则" name="4"></van-collapse-item>
+                        <van-collapse-item title="消费者指南" name="5">
+                            <ul class="item">
+                                <li>购物流程</li>
+                                <li>退货政策</li>
+                                <li>关于我们</li>
+                            </ul>
+                        </van-collapse-item>
+                    </van-collapse>
+                    <ul class="credit-cards">
+                        <li>
+                            <img src="../assets/images/zhifubao.png" alt="">
+                        </li>
+                       <li>
+                           <img src="../assets/images/vx.png" alt="">
+                       </li>
+                        <li>
+                            <img src="../assets/images/mayi.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../assets/images/online.png" alt="">
+                        </li>
+                    </ul>
+                    <ul class="alt-sites">
+                        <li>
+                            <img src="../assets/images/uk.jpg" alt="">
+                            <span>UK</span>
+                        </li>
+                        <li>
+                            <img src="../assets/images/FK.jpg" alt="">
+                            <span>FK</span>
+                        </li>
+                        <li>
+                            <img src="../assets/images/de.jpg" alt="">
+                            <span>DE</span>
+                        </li>
+                        <li>
+                            <img src="../assets/images/no.png" alt="">
+                            <span>NO</span>
+                        </li>
+                        <li>
+                            <img src="../assets/images/eu.png" alt="">
+                            <span>EU</span>
+                        </li>
+                        <li>
+                            <img src="../assets/images/us.png" alt="">
+                            <span>US</span>
+                        </li>
+                        <li>
+                            <img src="../assets/images/in.png" alt="">
+                            <span>international</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright-strip">
+                    <p>feelunique.com © 2005-2019. All rights reserved.</p>
+                </div>
             </div>
         </section>
     </div>
 </template>
 
 <script>
-    import HomeScroll from '../components/HomeScroll';
-    import TabCom from "../components/TabCom";
+    import HomeTwoTypes from "../components/HomeTwoTypes";// 猜你喜欢
+    import HomeScroll from '../components/HomeScroll';//横向滚动列表
+    import TabCom from "../components/TabCom";//tab 切换
     import $ from "jquery";
     
     export default {
         name: "Home",
         data() {
             return {
+                yourLikeCount:1,
+                activeName: '',
                 /*banner数据*/
                 /*banner数据*/
                 bannerData: "",
@@ -348,9 +499,16 @@
             };
         },
         components: {
-            TabCom, HomeScroll
+            TabCom, HomeScroll,HomeTwoTypes
         },
         methods: {
+            //猜你喜欢
+            cahngeYourLike(){
+                this.yourLikeCount++;
+                if (this.yourLikeCount>=4){
+                    this.yourLikeCount=1;
+                }
+            },
             //发现心头好Tab切换
            changeActive(type){
                this.inActive=type;
@@ -386,8 +544,8 @@
             this.$api
                 .getHomeDataAPI({page_type: "home"})
                 .then((res) => {
-                    // console.log(res.data.results);
-                    this.HomeData = res.data;
+                    console.log(res.data.results);
+                    this.HomeData = res.data.results;
                 })
                 .catch((err) => {
                     console.log(err);
@@ -406,6 +564,16 @@
         },
         mounted() {
             this.$nextTick(function () {
+                $(window).on('scroll',function () {
+                    // console.log($(window).scrollTop())
+                    if ($(window).scrollTop() > 100) {
+                        $('.header .head_box .search').appendTo('.header .global .top .center');
+                        $('.header .global .top .center>img ').css({display:'none'})
+                    }else {
+                        $('.header .search').appendTo('.header  .head_box');
+                        $('.header .global .top .center>img ').css({display: 'inline-block'});
+                    }
+                });
             });
         },
     };
@@ -415,6 +583,98 @@
     /*    display: none;*/
     /*}*/
     .home {
+        .percentage-container{
+            width: 100%;
+            .title{
+                position: relative;
+                padding-bottom: 0.2rem;
+                text-align: center;
+                font-size: .32rem;
+                font-weight: 700;
+                color: #333;
+                .icon{
+                    position: absolute;
+                    right:0.22rem;
+                    top: 0;
+                    span{
+                        display: inline-block;
+                        margin-left: 0.1rem;
+                        font-size: .24rem;
+                        color: #666;
+                    }
+                }
+            }
+            .con{
+                width: 100%;
+            }
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+            width: 100%;
+            background-color: #fff;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid #e8e8e8;
+            .top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.15rem 0.3rem 0;
+            
+                .left {
+                    width: 0.4rem;
+                }
+            
+                .center {
+                    width:6rem;
+                    text-align: center;
+                }
+    
+                .center > img {
+                    width: 55%;
+                }
+                .right {
+                    width: 0.38rem;
+                }
+            
+                img {
+                    width: 100%;
+                }
+            }
+            .head_box{
+                width: 100%;
+                margin: auto;
+            }
+    
+            .search {
+                display: flex;
+                align-items: center;
+                padding-left: 0.4rem;
+                margin: 0 auto;
+                width: 85%;
+                height: 0.6rem;
+                border: 1px solid #999;
+                border-radius: 0.3rem;
+                line-height: 0.56rem;
+                font-size: 0.24rem;
+                color: #999;
+                transition: all 0.5s;
+                img {
+                    margin-right: 0.15rem;
+                    width: 0.32rem;
+                }
+        
+                span {
+                    font-size: 0.24rem;
+                    color: #999;
+                }
+            }
+        }
+        .ban{
+            margin-top: 1.7rem;
+        }
         .index_promise{
             padding-top: .2rem;
             background-color: #f0f0f0;
@@ -465,6 +725,111 @@
                             height: auto;
                         }
                     }
+                }
+                .bbb{
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    padding: .6rem .24rem 0;
+                    box-sizing: border-box;
+                    font-size: 0;
+                    background-color: #fff;
+                    overflow: hidden;
+                    li{
+                        display: flex;
+                        justify-content: start;
+                        align-items: center;
+                        margin-bottom: 0.5rem;
+                        width: 45%;
+                        img{
+                            width: .7rem;
+                            height: .7rem;
+                            margin-right: .19rem;
+                        }
+                        .right{
+                            p:nth-child(1){
+                                font-size: .28rem;
+                                color: #333;
+                                margin-bottom: .1rem;
+                                overflow: hidden;
+                            }
+                            p:nth-child(2){
+                                font-size: .24rem;
+                                color: #999;
+                                overflow: hidden;
+                            }
+                        }
+                    }
+                }
+                .money{
+                    padding-left: 0.26rem;
+                    font-size: .26rem;
+                    color: #333;
+                    background-color: #fff;
+                }
+                .handPiano{
+                    margin-top: -0.3rem;
+                    background-color: #444;
+                    box-sizing: border-box;
+                    padding: 0 .24rem .2rem;
+                    .item{
+                        li{
+                            color: #ccc;
+                            display: block;
+                            font-size: .24rem;
+                            line-height: .5rem;
+                        }
+                    }
+                    .credit-cards{
+                        font-size: 0;
+                        text-align: center;
+                        margin-top: .6rem;
+                        padding-bottom: .5rem;
+                        border-bottom: none;
+                        li{
+                            display: inline-block;
+                            width: 1.4rem;
+                            height: .5rem;
+                            margin-right: .2rem;
+                            vertical-align: middle;
+                            img{
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .alt-sites{
+                        font-size: 0;
+                        text-align: center;
+                        margin: 0 auto;
+                        li{
+                            display: inline-block;
+                            width: auto;
+                            height: .22rem;
+                            line-height: .22rem;
+                            font-size: .2rem;
+                            vertical-align: middle;
+                            text-align: left;
+                            margin: 0 .35rem .34rem;
+                            img{
+                                display: inline-block;
+                                margin-right: .15rem;
+                                vertical-align: middle;
+                                height: .2rem;
+                                width: .4rem;
+                            }
+                            span{
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+                .copyright-strip{
+                    height: .68rem;
+                    line-height: .68rem;
+                    font-size: .24rem;
+                    background: #1b1a19;
+                    color: #fff;
+                    text-align: center;
                 }
             }
         }
@@ -570,62 +935,7 @@
            
         }
         /*background-color: #F0F0F0;*/
-        margin-bottom: 2rem;
-        
-        .header {
-            width: 100%;
-            background-color: #fff;
-            padding-bottom: 0.25rem;
-            border-bottom: 1px solid #e8e8e8;
-            
-            .top {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.15rem 0.3rem 0;
-                
-                .left {
-                    width: 0.4rem;
-                }
-                
-                .center {
-                    width: 3.3rem;
-                }
-                
-                .right {
-                    width: 0.38rem;
-                }
-                
-                img {
-                    width: 100%;
-                }
-            }
-            
-            .search {
-                display: flex;
-                align-items: center;
-                padding-left: 0.4rem;
-                margin: 0 auto;
-                width: 6.94rem;
-                height: 0.6rem;
-                border: 1px solid #999;
-                border-radius: 0.3rem;
-                line-height: 0.56rem;
-                font-size: 0.24rem;
-                color: #999;
-                
-                img {
-                    margin-right: 0.15rem;
-                    width: 0.32rem;
-                }
-                
-                span {
-                    font-size: 0.24rem;
-                    color: #999;
-                }
-            }
-        }
-        
+        margin-bottom: 1rem;
         //轮播
         .van-swipe {
             .van-swipe__indicators {
@@ -638,7 +948,6 @@
                 }
             }
         }
-        
         //10
         .smallIcon {
             display: flex;
