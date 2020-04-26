@@ -35,4 +35,10 @@ mock.mock("http://kk.com/home/tablechange.php", function () {
     return res;
 });
 
+mock.mock("http://kk.com/home/categories.php", function () {
+    let res = data.categories;
+    // console.log(res);
+    return res;
+});
+
 export { mock };

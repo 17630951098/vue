@@ -26,6 +26,11 @@ let getHomeBrandAPI = (data) => {
 let getHomeTableAPI = (data) => {
     return axios.get('/home/tablechange.php', data)
 };
+
+//分类页面数据
+let getSortDataAPI = (data) => {
+    return axios.get('/home/categories.php', data)
+};
 export {
-    getHomeBannerDataAPI, getHomeDataAPI, getHomeIconAPI, getHomeTabListAPI, getHomeBrandAPI, getHomeTableAPI
+    getHomeBannerDataAPI, getHomeDataAPI, getHomeIconAPI, getHomeTabListAPI, getHomeBrandAPI, getHomeTableAPI, getSortDataAPI
 }

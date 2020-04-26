@@ -1973,4 +1973,398 @@ let homeTable = [
         addCart: "加入购物篮",
     },
 ];
-export {bannerData, homeData, homeSmallIcon, tabList, brand, homeTable};
+let categories = [
+    [
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3829.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "保湿面霜"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3856.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "洁面产品"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/catalog/category/f/i/file_151.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "面膜/贴膜"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3934.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "痘痘痤疮"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3821.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "眼部护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3826.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "唇部护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3824.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "抗老化"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3898.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "面部护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/catalog/category/f/i/file_152.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "韩式护肤"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3910.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "爽肤水"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4028.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "去角质/磨砂"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4026.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "有机护肤"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4176.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "颈部护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4053.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "美肌营养"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4153.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "礼盒套装"
+        }
+    ],
+    [
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3727.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "面部底妆"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3790.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "唇部彩妆"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3730.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "眉部彩妆"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3759.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "眼部彩妆"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3882.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "妆前隔离"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/catalog/category/f/i/file_153.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "定妆喷雾"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3784.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "彩妆盘"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3842.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "高光亮泽"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3729.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "修容产品"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3797.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "化妆刷具"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3742.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "指甲彩妆"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/6837.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "化妆包"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3732.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "工具配件"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4358.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "化妆品除菌剂"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3816.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "天然有机彩妆"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3930.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "卸妆产品"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3892.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "礼盒套装"
+        }
+    ],
+    [
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4030.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "淋浴盆浴"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3838.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "身体护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4099.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "孕妈护体"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3748.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "手部护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3735.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "足部护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3865.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "塑形美体"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3979.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "沐浴香皂"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3981.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "止汗祛味"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4168.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "身体除毛"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4125.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "浴室用品"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4037.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "口腔护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3833.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "女性呵护"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4039.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "宝宝护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4128.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "有机美体"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4151.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "礼盒套装"
+        }
+    ],
+    [
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3952.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "洗发露"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3974.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "护发素"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/catalog/category/f/i/file_154.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "量贩装"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3868.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "密集护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/8693.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "精华精油"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3969.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "造型产品"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/catalog/category/f/i/file_155.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "发膜焗油"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3812.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "染发产品"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4234.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "梳子发刷"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3867.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "造型配件"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3941.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "造型电器"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4224.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "礼盒套装"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4104.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "护发营养"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/10808.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "接发片"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4055.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "有机天然"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4146.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "宝宝洗护"
+        }
+    ],
+    [],
+    [
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3920.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "保湿霜"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3745.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "剃须除毛"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3938.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "工具/配件"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4143.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "洁面爽肤"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4115.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "去角质/磨砂"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4111.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "痘痘痤疮"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3922.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "面膜护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3923.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "男士抗老"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4165.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "眼部护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4160.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "唇部护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3870.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "头发护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3889.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "男士香氛"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3925.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "沐浴泡澡"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3980.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "身体护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4082.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "止汗祛味"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4119.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "手部护理"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3903.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "防晒美黑"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4060.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "健康生活"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3747.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "礼盒套装"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/8086.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "减脂塑形"
+        }
+    ],
+    [
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4345.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "身体用"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3944.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "头发用"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3862.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "面部用"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4392.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "电动牙刷"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3940.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "男士电器"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/8643.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "脱毛仪"
+        }
+    ],
+    [
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3738.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "礼品套装"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3987.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "头发造型"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/3875.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "彩妆盘"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/category/12/4137.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "家庭香氛"
+        },
+        {
+            "url": "http://brand-assets.azoyacdn.com/media/catalog/category/f/i/file_156.jpg?imageMogr2/thumbnail/128x128/extent/128x128/background/d2hpdGU=",
+            "name": "化妆包/箱"
+        }
+    ],
+    []
+]
+export {bannerData, homeData, homeSmallIcon, tabList, brand, homeTable, categories};
