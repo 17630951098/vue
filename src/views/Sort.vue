@@ -1,7 +1,7 @@
 <template>
     <div class="sort">
         <!--搜索框-->
-        <div class="header">
+        <div @click="goto" class="header">
             <div class="search_box">
                 <span>请输入关键字</span>
                 <span><img src="../assets/images/search.png" alt=""></span>
@@ -89,6 +89,9 @@
             changeActive(index){
                 this.val=index;
                 console.log(this.val)
+            },
+            goto() {
+                this.$router.push('/search')
             }
         },
         created() {

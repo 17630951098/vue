@@ -30,7 +30,10 @@ let getHomeTableAPI = (data) => {
 //分类页面数据
 let getSortDataAPI = (data) => {
     return axios.get('/home/categories.php', data)
+};//分类页面数据
+let getBrandsDataAPI = (data) => {
+    return axios.get('/home/brands.php', data)
 };
 export {
-    getHomeBannerDataAPI, getHomeDataAPI, getHomeIconAPI, getHomeTabListAPI, getHomeBrandAPI, getHomeTableAPI, getSortDataAPI
+    getHomeBannerDataAPI, getHomeDataAPI, getHomeIconAPI, getHomeTabListAPI, getHomeBrandAPI, getHomeTableAPI, getSortDataAPI, getBrandsDataAPI
 }

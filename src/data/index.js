@@ -2366,5 +2366,670 @@ let categories = [
         }
     ],
     []
-]
-export {bannerData, homeData, homeSmallIcon, tabList, brand, homeTable, categories};
+];
+let brandData= [
+    {
+        "name": "A",
+        "brand": {
+            "txt": [
+                "AEOS energised organics",
+                "AHAVA",
+                "Akin",
+                "A'kin",
+                "ALGENIST",
+                "ALLIES of SKIN",
+                "AMELIORATE",
+                "AMERICAN CREW",
+                "AMKIRI",
+                "ANASTASIA BEVERLY HILLS",
+                "ANNE SEMONIN",
+                "Anthony",
+                "ANTIPODES",
+                "Antonym",
+                "AQUIS",
+                "ARDELL",
+                "ARGAN+",
+                "AromaWorks London",
+                "ARTDECO",
+                "Artis",
+                "AURELIA PROBIOTIC SKINCARE",
+                "AUSSIE",
+                "AUSTRALIAN BODYCARE",
+                "Aveeno",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "B",
+        "brand": {
+            "txt": [
+                "BABOR",
+                "BaByliss",
+                "BaByliss PRO",
+                "Bach",
+                "BADGER BALM",
+                "bagsy",
+                "balance me",
+                "Balm Balm",
+                "BARBER PRO",
+                "bareMinerals",
+                "Barry M",
+                "Base.",
+                "Baxter of California",
+                "BBB London",
+                "bbrowbar",
+                "BEAUTY BLVD",
+                "Beauty Kitchen",
+                "BeautyPro",
+                "Beauty PRO",
+                "Being BY SANCTUARY SPA",
+                "BELOW THE BELT GROOMING",
+                "BIODERMA",
+                "Biore",
+                "black Up",
+                "Bloom and Blossom",
+                "BOD",
+                "Booby Tape",
+                "BOTTEGA VENETA",
+                "Boucleme",
+                "BOURJOIS",
+                "brush works",
+                "bubble't",
+                "BULLDOG SKINCARE FOR MEN",
+                "BURBERRY",
+                "BURT'S BEES",
+                "BUXOM",
+                "BY TERRY",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "C",
+        "brand": {
+            "txt": [
+                "cantu",
+                "CARMEX",
+                "Cartier",
+                "CAUDALIE",
+                "cellcosmet & cellmen",
+                "Charlotte Tilbury",
+                "Clean & Clear",
+                "CLOUD NINE",
+                "Cocoa Brown by Marissa Carter",
+                "COLLISTAR",
+                "COLOR WOW",
+                "CONNOCK LONDON",
+                "Coola",
+                "COSRX",
+                "COVER FX",
+                "Crabtree & Evelyn",
+                "CULT51",
+                "CURLSMITH",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "D",
+        "brand": {
+            "txt": [
+                "DAIMON BARBER",
+                "DANIEL SANDLER",
+                "DEAD SEA spa MAGIK",
+                "DERMAFLASH",
+                "DHC",
+                "dr.brandt",
+                "DR.BRONNER'S",
+                "Dr.Hauschka",
+                "Dr.Lipp",
+                "DR.NICK LOWE",
+                "Dr.PAWPAW",
+                "DU'IT",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "E",
+        "brand": {
+            "txt": [
+                "Easilocks",
+                "ECOOKING",
+                "electric HAIRDRESSING LONDON",
+                "ELEGANT TOUCH",
+                "elemental herbology",
+                "ELEMIS",
+                "e.l.f.",
+                "Elizabeth Arden",
+                "Elvie",
+                "Embryolisse",
+                "EMMA HARDIE",
+                "emu oil well",
+                "erborian",
+                "Ere Perez",
+                "ERNO LASZLO",
+                "estelle & thild",
+                "Eucerin",
+                "Evolve Beauty",
+                "EX1 Cosmetics",
+                "EYE Q",
+                "EYLURE",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "F",
+        "brand": {
+            "txt": [
+                "Fake Bake",
+                "Farsali",
+                "Fifi & Friends",
+                "FIGS & ROUGE",
+                "FILORGA",
+                "FIRST AID BEAUTY",
+                "Floradix",
+                "Foltene",
+                "FOREO",
+                "FUDGE",
+                "Fur",
+                "Fushi",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "G",
+        "brand": {
+            "txt": [
+                "GARNIER",
+                "GATINEAU",
+                "GEHWOL",
+                "GELLE FRERES",
+                "Gillette",
+                "GIVENCHY",
+                "GLAMCOR",
+                "GLAMORISER",
+                "Glow Bar",
+                "Goldfaden MD",
+                "GOLDWELL",
+                "GREEN PEOPLE",
+                "GUERLAIN",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "H",
+        "brand": {
+            "txt": [
+                "HAIR BURST",
+                "HAWAIIAN Tropic",
+                "HAX",
+                "HD Brows",
+                "HEALGEL",
+                "hello JO",
+                "Herbal Dynamics Beauty",
+                "he-shi",
+                "HO KARAN",
+                "HOLIKA HOLIKA",
+                "Honey Belle",
+                "HOURGLASS",
+                "HUDA BEAUTY",
+                "Hydrea London",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "I",
+        "brand": {
+            "txt": [
+                "ICONIC London",
+                "ilapothecary",
+                "iluminage",
+                "IMAN",
+                "INC.redible",
+                "INIKA",
+                "INSTITUT ESTHEDERM",
+                "Integrative Beauty",
+                "invisibobble",
+                "ISADORA",
+                "ISLE OF PARADISE",
+                "It'S SKIN",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "J",
+        "brand": {
+            "txt": [
+                "JASON",
+                "JESSICA",
+                "JOHN FRIEDA",
+                "JOICO",
+                "J.ONE",
+                "Josh Rosebrook",
+                "Juice Beauty",
+                "Juicy Couture",
+                "Jurlique",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "K",
+        "brand": {
+            "txt": [
+                "kms",
+                "KORRES",
+                "KRISTIN ESS",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "L",
+        "brand": {
+            "txt": [
+                "LANCASTER",
+                "LANCER",
+                "Lanolips",
+                "L'ANZA HEALING HAIRCARE",
+                "LAPCOS",
+                "LaRoc Cosmetics",
+                "LAURA GELLER",
+                "LEIGHTON DENNY EXPERT NAILS",
+                "LELO",
+                "le mini macaron",
+                "LE PRUNIER",
+                "LIERAC",
+                "Lime Crime",
+                "Lipcote",
+                "Living Proof",
+                "lixirskin",
+                "look good feel better",
+                "L'OREAL PARIS",
+                "Love Beauty & Planet",
+                "Love Boo",
+                "LUMENE",
+                "LUMITY",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "M",
+        "brand": {
+            "txt": [
+                "Macadamia Natural Oil",
+                "Macadamia NATURAL OIL",
+                "MADARA",
+                "MAGICSTRIPES",
+                "Magnetic Lash",
+                "MAGNITONE",
+                "MAKEUP ERASER",
+                "MANCAVE",
+                "Mane'n Tail",
+                "Margaret Dabbs",
+                "Marvis",
+                "MARVIS",
+                "masqueBAR",
+                "MAVALA",
+                "MAX FACTOR",
+                "Maybelline",
+                "MAYBELLINE NEW YORK",
+                "Medik8",
+                "Miller Harris",
+                "MIMITIKA",
+                "MISSHA",
+                "Montagne Jeunesse",
+                "MONU PROFESSIONAL SKINCARE",
+                "Mooncup",
+                "MOR",
+                "Murad",
+                "MY HAIR DOCTOR",
+                "My Viv",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "N",
+        "brand": {
+            "txt": [
+                "NAILSINC",
+                "nailtiques",
+                "NANOGEN",
+                "Natasha Denona",
+                "NATURAL BIRTHING COMPANY",
+                "NEAL & WOLF",
+                "Neighbourhood Botanicals",
+                "NEOM ORGANICS LONDON",
+                "Neutrogena",
+                "NIOD",
+                "NIOXIN",
+                "NIP+FAB",
+                "NOBLE ISLE",
+                "No B.S",
+                "NOUGHTY",
+                "nude by nature",
+                "nugg",
+                "NUXE",
+                "NYX Professional Makeup",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "O",
+        "brand": {
+            "txt": [
+                "ogx",
+                "Oh K!",
+                "OLAY",
+                "Omorovicza",
+                "OPI",
+                "OSKIA",
+                "osmo",
+                "OUAI HAIRCARE",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "P",
+        "brand": {
+            "txt": [
+                "PACIFICA",
+                "PALMER'S",
+                "Papaya Gold",
+                "PAUL & JOE",
+                "PAYOT",
+                "PERCY & REED",
+                "Perricone MD",
+                "PHB",
+                "PHILIP B",
+                "PHILIP KINGSLEY",
+                "philosophy",
+                "Physicians Formula",
+                "PHYTO",
+                "Plantur 39",
+                "popband LONDON",
+                "POWERED BY FEELUNIQUE",
+                "PRAI Beauty",
+                "Profusion",
+                "PUR",
+                "pure ALTITUDE",
+                "Pure Aura",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "Q",
+        "brand": {
+            "txt": [
+                "Q+A",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "R",
+        "brand": {
+            "txt": [
+                "RADICAL skincare",
+                "Rahua",
+                "RapidLash",
+                "Rapid Lash",
+                "REALHER",
+                "REAL TECHNIQUES",
+                "REDKEN",
+                "REGENERATE",
+                "REN CLEAN SKINCARE",
+                "Reverie",
+                "REVLON",
+                "REVLON PROFESSIONAL",
+                "RIMMEL",
+                "RMS Beauty",
+                "Rodial",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "S",
+        "brand": {
+            "txt": [
+                "SACHAJUAN",
+                "salcura",
+                "Sally Hansen",
+                "Salus",
+                "Sambucol",
+                "SARAH CHAPMAN",
+                "Schwarzkopf",
+                "Schwarzkopf PROFESSIONAL",
+                "scott barnes",
+                "sebamed",
+                "SEBASTIAN PROFESSIONAL",
+                "Shavata",
+                "Shea Moisture",
+                "SHISEIDO",
+                "SHOCKWAVES",
+                "SHOW BEAUTY",
+                "sienna x",
+                "SIGMA",
+                "SILKE LONDON",
+                "Sisley",
+                "SKIN DOCTORS",
+                "SKIN INC",
+                "SKINNY TAN",
+                "skyn ICELAND",
+                "Sleek MakeUP",
+                "SLENDERTONE",
+                "Slow Ageing Essentials",
+                "spacemasks",
+                "STARSKIN",
+                "ST.MORIZ",
+                "ST.TROPEZ",
+                "STUDIO 10",
+                "stylPro",
+                "Sugar Coated",
+                "sukin",
+                "Sunday Ivy",
+                "Super Facialist",
+                "SVR",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "T",
+        "brand": {
+            "txt": [
+                "Tangle ANGEL",
+                "TANGLE ANGEL",
+                "TANGLE TEEZER",
+                "TAN-LUXE",
+                "TanOrganic",
+                "Tanya Burr",
+                "Taylor of Old Bond Street",
+                "Ted Baker",
+                "the Balm",
+                "The Beauty Chef",
+                "The Gypsy Shrine",
+                "The INKEY List",
+                "The Konjac Sponge Company",
+                "The Ordinary",
+                "The Pro Hygiene Collection",
+                "The Vintage Cosmetic Company",
+                "this works",
+                "TIGI BED HEAD",
+                "TIGI CATWALK",
+                "TIGI S-factor",
+                "TISSERAND AROMATHERAPY",
+                "TONI & GUY",
+                "Tonymoly",
+                "too cool for school",
+                "TOPSHOP BEAUTY",
+                "Tracie Martyn",
+                "Transformulas",
+                "Travalo",
+                "treStiQue",
+                "tria",
+                "trilogy",
+                "TULA",
+                "TWEEZERMAN",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "U",
+        "brand": {
+            "txt": [
+                "UpCircle Beauty",
+                "Urban Apothecary",
+                "URBAN APOTHECARY LONDON",
+                "Uriage",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "V",
+        "brand": {
+            "txt": [
+                "Veet",
+                "VERSACE",
+                "VERSO",
+                "Viseart",
+                "VITABIOTICS",
+                "VITA COCO",
+                "VITA LIBERATA",
+                "Vitality CBD",
+                "Viviscal",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "W",
+        "brand": {
+            "txt": [
+                "WAHL",
+                "WE ARE PARADOXX",
+                "WELEDA",
+                "Wella",
+                "Wella Professionals",
+                "WELLA PROFESSIONALS",
+                "Wet Brush",
+                "Wet n Wild",
+                "WHITE HOT",
+                "Wildflower",
+                "Woowoo",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "X",
+        "brand": {
+            "txt": [
+                "XEN-TAN",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "Y",
+        "brand": {
+            "txt": [
+                "YESforLOV",
+                "YES! NURSE",
+                "yes to",
+                "YOUTH LAB",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "Z",
+        "brand": {
+            "txt": [
+                "zelens",
+                "Zoella Beauty",
+                "ZOEVA",
+                null,
+                null,
+                null
+            ]
+        }
+    },
+    {
+        "name": "r",
+        "brand": {
+            "txt": [
+                "3INA",
+                null,
+                null,
+                null
+            ]
+        }
+    }
+];
+export {bannerData, homeData, homeSmallIcon, tabList, brand, homeTable, categories, brandData};

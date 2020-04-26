@@ -40,5 +40,10 @@ mock.mock("http://kk.com/home/categories.php", function () {
     // console.log(res);
     return res;
 });
+mock.mock("http://kk.com/home/brands.php", function () {
+    let res = data.brandData;
+    // console.log(res);
+    return res;
+});
 
 export { mock };

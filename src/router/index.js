@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Sort from "../views/Sort.vue";
 import Brand from "../views/Brand.vue";
 import Cart from "../views/Cart.vue";
+import Search from "../views/Search.vue";
 import PersonalCenter from "../views/PersonalCenter.vue";
 import Detail from "../views/Detail.vue";
 
@@ -24,6 +25,10 @@ const routes = [
         path: "/brand",
         name: "Brand",
         component: Brand,
+    },{
+        path: "/search",
+        name: "Search",
+        component: Search,
     },
     {
         path: "/cart",
@@ -43,6 +48,13 @@ const routes = [
 
 const router = new VueRouter({
     routes,
+    //跳转顶部归零
+    scrollBehavior: () => {
+        return {
+            x: 0,
+            y: 0
+        }
+    }
 });
 
 export default router;

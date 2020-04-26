@@ -53,4 +53,12 @@ a {
     -webkit-transform: scaleY(.5);
     transform: scaleY(.5);
 }
+.brand .van-index-bar__sidebar span{
+    height: .36rem;
+    line-height: .36rem;
+}
+
+.brand .van-index-bar__sidebar .van-index-bar__index--active{
+    font-weight: 700;
+}
 /*background-color: rgba (0, 0, 0, 0.7);*/
