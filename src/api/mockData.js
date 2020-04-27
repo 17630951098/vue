@@ -34,15 +34,33 @@ mock.mock("http://kk.com/home/tablechange.php", function () {
     // console.log(res);
     return res;
 });
-
-mock.mock("http://kk.com/home/categories.php", function () {
+//分类页面数据
+mock.mock("http://kk.com/categories.php", function () {
     let res = data.categories;
     // console.log(res);
     return res;
 });
-mock.mock("http://kk.com/home/brands.php", function () {
+//品牌数据
+mock.mock("http://kk.com/brands.php", function () {
     let res = data.brandData;
     // console.log(res);
+    return res;
+});
+//搜索结果页面数据
+mock.mock("http://kk.com/search/result.php", function () {
+    let i;
+    let obj;
+    let res = [];
+    for (i = 0; i < Math.floor(Math.random() * 100) + 50; i++) {
+        obj = {
+            img: mock.Random.image("300x300"),
+            name: mock.Random.ctitle(20),
+            price: '£'+mock.Random.float(20, 300).toFixed(2),
+            market_price: '£'+ mock.Random.float(100, 500).toFixed(2),
+            foreign_price: '￥' +mock.Random.float(100, 1000).toFixed(2),
+        };
+        res.push(obj);
+    }
     return res;
 });
 

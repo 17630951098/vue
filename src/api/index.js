@@ -29,11 +29,18 @@ let getHomeTableAPI = (data) => {
 
 //分类页面数据
 let getSortDataAPI = (data) => {
-    return axios.get('/home/categories.php', data)
-};//分类页面数据
+    return axios.get('/categories.php', data)
+};
+//
 let getBrandsDataAPI = (data) => {
-    return axios.get('/home/brands.php', data)
+    return axios.get('/brands.php', data)
+};
+
+//搜索结果页面
+let getSearchResultDataAPI=(data)=>{
+    return axios.post('/search/result.php')
 };
 export {
-    getHomeBannerDataAPI, getHomeDataAPI, getHomeIconAPI, getHomeTabListAPI, getHomeBrandAPI, getHomeTableAPI, getSortDataAPI, getBrandsDataAPI
+    getHomeBannerDataAPI, getHomeDataAPI, getHomeIconAPI, getHomeTabListAPI, getHomeBrandAPI, getHomeTableAPI, getSortDataAPI, getBrandsDataAPI,
+    getSearchResultDataAPI
 }

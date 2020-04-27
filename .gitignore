@@ -1,7 +1,5 @@
 .DS_Store
 node_modules
-.editorconfig
-.eslintrc.js
 /dist
 
 # local env files

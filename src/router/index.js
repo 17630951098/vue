@@ -31,7 +31,7 @@ const routes = [
         name: "Search",
         component: Search,
     },{
-        path: "/result",
+        path: "/search/result",
         name: "Result",
         component: Result,
     },
