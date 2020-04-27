@@ -87,7 +87,7 @@
         created() {
             this.$api.getBrandsDataAPI().then(res=>{
                 this.brands=res.data;
-                console.log(res.data)
+                // console.log(res.data)
             })
         }
     }

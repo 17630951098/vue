@@ -5,6 +5,7 @@ import Sort from "../views/Sort.vue";
 import Brand from "../views/Brand.vue";
 import Cart from "../views/Cart.vue";
 import Search from "../views/Search.vue";
+import Result from "../views/Result.vue";
 import PersonalCenter from "../views/PersonalCenter.vue";
 import Detail from "../views/Detail.vue";
 
@@ -29,6 +30,10 @@ const routes = [
         path: "/search",
         name: "Search",
         component: Search,
+    },{
+        path: "/result",
+        name: "Result",
+        component: Result,
     },
     {
         path: "/cart",

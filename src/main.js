@@ -8,6 +8,10 @@ import "./assets/css/public.css";
 import Vant from "vant";
 import "vant/lib/index.css";
 
+/*引入js-cookie*/
+import jsCookie from "js-cookie";
+/*jsCookie注册原型*/
+Vue.prototype.$jsCookie = jsCookie;
 Vue.use(Vant);
 //api注册原型
 import * as api from "./api/index";
