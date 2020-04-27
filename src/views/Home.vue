@@ -25,13 +25,12 @@
             </div>
             <!--search-->
             <div class="head_box">
-                <div class="search">
-                    <img src="../assets/images/search.png"/>
-                    <span>搜索商品/品牌</span>
+                <div class="search" @click="toSearch">
+                        <img src="../assets/images/search.png"/>
+                        <span>搜索商品/品牌</span>
                 </div>
             </div>
         </div>
-        <!--顶部 end-->
         <!--轮播图-->
         <van-swipe class="ban" :width="'100%'" :autoplay="3500" v-if="bannerData">
             <van-swipe-item v-for="(image, index) in bannerData" :key="index">
@@ -502,6 +501,9 @@
             TabCom, HomeScroll,HomeTwoTypes
         },
         methods: {
+            toSearch(){
+                this.$router.push('/search')
+            },
             //猜你喜欢
             cahngeYourLike(){
                 this.yourLikeCount++;

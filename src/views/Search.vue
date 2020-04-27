@@ -6,7 +6,15 @@
                 <button class="btn" @click="goBack">
                     <van-icon size="0.4rem" name="arrow-left"/>
                 </button>
-                <input ref="code" :placeholder="lastHistory" @input="searchGoods" type="search" class="search" v-model="searchName"/>
+                <!--@click="searchName = lastHistory"-->
+                <input
+                        ref="code"
+                        :placeholder="lastHistory"
+                        @input="searchGoods"
+                        type="search"
+                        class="search"
+                        v-model="searchName"
+                />
                 <button class="btn" @click="goSearch">搜索</button>
             </form>
         </header>
@@ -26,7 +34,7 @@
             <div class="title">历史记录</div>
             <!--历史记录列表-->
             <ul class="searchInfo">
-                <li  v-for="(item, index) in searchHistory" :key="index">
+                <li v-for="(item, index) in searchHistory" :key="index">
                     <span @click="goHistorySearch(item)">{{ item }}</span>
                     <!--删除按钮-->
                     <van-icon @click="removeHistory(index)" size="0.4rem" name="cross"/>
@@ -47,31 +55,31 @@
                 searchName: "",
                 searchHistory: [],
                 historyCookie: "",
-                lastHistory:'',
-                code:'',
+                lastHistory: "",
+                code: "",
             };
         },
         watch: {},
         methods: {
             //点击历史搜索
-            goHistorySearch(item){
+            goHistorySearch(item) {
                 this.goHotSearch(item);
             },
             //点击热门搜索
             goHotSearch(item) {
                 // console.log(item);
-                let i=null;
+                let i = null;
                 this.searchHistory.forEach((val, key) => {
                     if (val == item) {
-                        i=key;
+                        i = key;
                     }
                 });
                 //删除原本存在的
-                this.searchHistory.splice(i,1);
+                this.searchHistory.splice(i, 1);
                 //添加到最前面
-                    this.searchHistory.unshift(item);
-                    //存cookie
-                    this.$jsCookie.set("searchHistoryInfo", JSON.stringify(this.searchHistory), {expires: 7});
+                this.searchHistory.unshift(item);
+                //存cookie
+                this.$jsCookie.set("searchHistoryInfo", JSON.stringify(this.searchHistory), {expires: 7});
                 this.$router.push({
                     name: "Result",
                     query: {
@@ -95,10 +103,10 @@
             searchGoods() {
                 // console.log(this.searchName);
                 /*axios.get('https://cn.feelunique.com/queryapi/suggest?query='+ this.searchName).then(res=>{
-                                                      console.log(res);
-                                                  }).catch(err=>{
-                                                      console.log(err);
-                                                  })*/
+                                                          console.log(res);
+                                                      }).catch(err=>{
+                                                          console.log(err);
+                                                      })*/
             },
             /*确认搜索*/
             goSearch() {
@@ -110,14 +118,14 @@
                     //不为空则判断历史记录是否存在
                     this.searchHistory.forEach((val, key) => {
                         if (val == this.searchName) {
-                            i=key;
+                            i = key;
                         }
                     });
                     //删除原本存在的
                     this.searchHistory.splice(i, 1);
-                        this.searchHistory.unshift(this.searchName);
-                        //存cookie
-                        this.$jsCookie.set("searchHistoryInfo", JSON.stringify(this.searchHistory), {expires: 7});
+                    this.searchHistory.unshift(this.searchName);
+                    //存cookie
+                    this.$jsCookie.set("searchHistoryInfo", JSON.stringify(this.searchHistory), {expires: 7});
                     this.$router.push({
                         name: "Result",
                         query: {
@@ -140,17 +148,20 @@
             }
         },
         mounted() {
-            this.$nextTick(()=>{
+            this.$nextTick(() => {
                 //默认获取焦点
                 this.$refs.code.focus();
-            })
-        }
+            });
+        },
     };
 </script>
 
 <style scoped lang="less">
     .Search {
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
             .form {
                 padding: 0 0.2rem;
                 display: flex;
@@ -190,6 +201,7 @@
         }
         
         .hotSearch {
+            margin-top: 1rem;
             width: 100%;
             padding: 0.16rem 0;
             overflow: hidden;
@@ -225,6 +237,7 @@
         }
         
         .history {
+            margin-bottom: 1rem;
             padding: 0 0.3rem;
             background: #fff;
             overflow: hidden;
@@ -251,7 +264,8 @@
                     word-wrap: normal;
                     overflow: hidden;
                     border-bottom: 1px solid #e8e8e8;
-                    span:nth-child(1){
+                    
+                    span:nth-child(1) {
                         width: 100%;
                     }
                 }

@@ -17,56 +17,56 @@
             <div class="right">
                 <ul v-if="val==0">
                     <li v-for="(item,index) in sortData" :key="index" v-if="item.length!=0">
-                        <div class="item" v-for="(val,key) in item" v-if="val!=''">
+                        <div @click="toSerach(val.name)" class="item" v-for="(val,key) in item" v-if="val!=''">
                             <img :src="val.url" alt="">
                             <p>{{val.name}}</p>
                         </div>
                     </li>
                 </ul>
                 <ul class="simple" v-if="val==1">
-                    <li v-for="(item,index) in sortData[val-1]" :key="index">
+                    <li @click="toSerach(item.name)" v-for="(item,index) in sortData[val-1]" :key="index">
                             <img :src="item.url" alt="">
                             <p>{{item.name}}</p>
                     </li>
                 </ul>
                 <ul class="simple" v-if="val==2">
-                    <li v-for="(item,index) in sortData[val-1]" :key="index">
+                    <li @click="toSerach(item.name)" v-for="(item,index) in sortData[val-1]" :key="index">
                         <img :src="item.url" alt="">
                         <p>{{item.name}}</p>
                     </li>
                 </ul>
                 <ul class="simple" v-if="val==3">
-                    <li v-for="(item,index) in sortData[val-1]" :key="index">
+                    <li @click="toSerach(item.name)" v-for="(item,index) in sortData[val-1]" :key="index">
                         <img :src="item.url" alt="">
                         <p>{{item.name}}</p>
                     </li>
                 </ul>
                 <ul class="simple" v-if="val==4">
-                    <li v-for="(item,index) in sortData[val-1]" :key="index">
+                    <li @click="toSerach(item.name)" v-for="(item,index) in sortData[val-1]" :key="index">
                         <img :src="item.url" alt="">
                         <p>{{item.name}}</p>
                     </li>
                 </ul>
                 <ul class="simple" v-if="val==5">
-                    <li v-for="(item,index) in sortData[val-1]" :key="index">
+                    <li @click="toSerach(item.name)" v-for="(item,index) in sortData[val-1]" :key="index">
                         <img :src="item.url" alt="">
                         <p>{{item.name}}</p>
                     </li>
                 </ul>
                 <ul class="simple" v-if="val==6">
-                    <li v-for="(item,index) in sortData[val-1]" :key="index">
+                    <li @click="toSerach(item.name)" v-for="(item,index) in sortData[val-1]" :key="index">
                         <img :src="item.url" alt="">
                         <p>{{item.name}}</p>
                     </li>
                 </ul>
                 <ul class="simple" v-if="val==7">
-                    <li v-for="(item,index) in sortData[val-1]" :key="index">
+                    <li @click="toSerach(item.name)" v-for="(item,index) in sortData[val-1]" :key="index">
                         <img :src="item.url" alt="">
                         <p>{{item.name}}</p>
                     </li>
                 </ul>
                 <ul class="simple" v-if="val==8">
-                    <li v-for="(item,index) in sortData[val-1]" :key="index">
+                    <li @click="toSerach(item.name)" v-for="(item,index) in sortData[val-1]" :key="index">
                         <img :src="item.url" alt="">
                         <p>{{item.name}}</p>
                     </li>
@@ -86,17 +86,28 @@
             }
         },
         methods:{
+            //去搜索页面
+            toSerach(val){
+                this.$router.push({
+                    name: "Result",
+                    query: {
+                        key: val,
+                    },
+                });
+            },
+            //切换激活状态
             changeActive(index){
                 this.val=index;
-                console.log(this.val)
+                // console.log(this.val)
             },
+            //顶部搜索
             goto() {
                 this.$router.push('/search')
             }
         },
         created() {
             this.$api.getSortDataAPI().then(res=>{
-                console.log(res.data);
+                // console.log(res.data);
                 this.sortData=res.data;
             })
         }

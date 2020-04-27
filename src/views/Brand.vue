@@ -65,7 +65,7 @@
             <van-index-bar sticky sticky-offset-top="50" highlight-color="#000">
                 <div v-for="(item,index) in brands">
                     <van-index-anchor  :index="item.name"/>
-                    <van-cell  v-if="val!=null" v-for="(val,key) in item.brand.txt" :title="val"/>
+                    <van-cell @click="toSearch(val)"  v-if="val!=null" v-for="(val,key) in item.brand.txt" :title="val"/>
                 </div>
             </van-index-bar>
         </div>
@@ -80,6 +80,14 @@
             }
         },
         methods:{
+            toSearch(val){
+                this.$router.push({
+                    name: "Result",
+                    query: {
+                        key: val,
+                    },
+                });
+            },
             goto(){
                 this.$router.push('/search')
             }
