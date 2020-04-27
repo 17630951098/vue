@@ -4,7 +4,7 @@
         </div>
         <router-view />
         <!--底部-->
-        <van-tabbar v-model="active" active-color="#000" inactive-color="#000" fixed>
+        <van-tabbar v-show="$route.meta.showtabbar" v-model="active" active-color="#000" inactive-color="#000" fixed>
             <van-tabbar-item to="/">
                 <span>主页</span>
                 <template #icon="props">
@@ -56,6 +56,9 @@
                     person_inactive: require('./assets/images/person_inactive.svg'),
                 },
             }
+        },
+        created() {
+            this.active=this.$route.meta.index
         }
     }
 </script>
