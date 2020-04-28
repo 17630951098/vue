@@ -26,7 +26,7 @@
             <van-tabbar-item to="cart">
                 <span>购物篮</span>
                 <template #icon="props">
-                    <img :src="props.active ? icon.cart : icon.cart_inactive"/>
+                    <img :src="icon.cart_inactive"/>
                 </template>
             </van-tabbar-item>
             <van-tabbar-item to="/personalcenter">

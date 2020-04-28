@@ -79,7 +79,7 @@
                 //添加到最前面
                 this.searchHistory.unshift(item);
                 //存cookie
-                this.$jsCookie.set("searchHistoryInfo", JSON.stringify(this.searchHistory), {expires: 7});
+                this.$jsCookie.set("searchHistoryInfo", JSON.stringify(this.searchHistory), {expires: 365});
                 this.$router.push({
                     name: "Result",
                     query: {
@@ -98,7 +98,7 @@
             removeHistory(index) {
                 this.searchHistory.splice(index, 1);
                 //存cookie
-                this.$jsCookie.set("searchHistoryInfo", JSON.stringify(this.searchHistory), {expires: 7});
+                this.$jsCookie.set("searchHistoryInfo", JSON.stringify(this.searchHistory), {expires: 365});
             },
             searchGoods() {
                 // console.log(this.searchName);

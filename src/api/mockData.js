@@ -74,6 +74,7 @@ mock.mock("http://kk.com/search/result.php", function () {
     let res = [];
     for (i = 0; i < Math.floor(Math.random() * 100) + 50; i++) {
         obj = {
+            id: (Math.random() * (999999999 - 100000000) + 100000000).toFixed(0),
             img: mock.Random.image("300x300"),
             name: mock.Random.ctitle(20),
             price: '£'+mock.Random.float(20, 300).toFixed(2),

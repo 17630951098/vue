@@ -11,8 +11,8 @@
             </div>
             <!--切换排列样式-->
             <div  @click="changeListStyle">
-                <van-icon color="#787878" size="0.5rem" name="qr"/>
-<!--                <van-icon color="#787878" size="0.5rem" name="apps-o"/>-->
+                <van-icon v-if="count" color="#787878" size="0.5rem" name="qr"/>
+                <van-icon v-else color="#787878" size="0.5rem" name="apps-o"/>
             </div>`
             <!--回到首页-->
             <div @click="goHome" class="to_home">
@@ -22,7 +22,7 @@
         <!--列表-->
         <section class="container" v-if="result">
             <ul :class="count==true?'list':'square'">
-                <li v-for="(item,index) in result">
+                <li @click="toDetail(item.name)" v-for="(item,index) in result" :key="index">
                     <!--左侧图片-->
                     <div class="left">
                         <img :src="item.img" alt="">
@@ -34,7 +34,7 @@
                             <span v-if="item.price!=item.market_price">{{item.market_price}}</span>
                         </p>
                         <p>参考价：{{item.foreign_price}}</p>
-                        <div class="addCartr">
+                        <div @click.stop="addCart(item)" class="addCartr">
                         
                         </div>
                     </div>
@@ -46,6 +46,8 @@
 </template>
 
 <script>
+    import Vuex from "vuex";
+
     export default {
         data(){
             return{
@@ -53,9 +55,28 @@
                 result:'',
                 style:0,
                 count:true,
+                goods:'',
+                cartNum:0
             }
         },
         methods:{
+            addCart(item){
+                this.$toast('加入成功');
+                this.goods = {
+                    id: item.id,
+                    name:item.name,
+                    num: 1,
+                    price: item.price,
+                    market_price: item.market_price,
+                    img: item.img
+                },
+                    this.$store.commit('addGood', this.goods);
+                //购物车商品数量
+                this.cartNum = this.getGoodList.length;
+            },
+            toDetail(name) {
+                this.$router.push({name: 'Detail', params: {id: name}})
+            },
             changeListStyle(){
                this.count=!this.count;
             },
@@ -82,7 +103,13 @@
                 this.$router.push('/')
             }
         },
+        computed: {
+            ...Vuex.mapGetters(['getGoodList']),
+        
+        },
         created() {
+            //购物车商品数量
+            this.cartNum = this.getGoodList.length;
             //输入框传值
             this.key=this.$route.query.key;
             //

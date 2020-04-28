@@ -81,7 +81,7 @@
         <!--加入购物车-->
         <footer class="bottom">
             <ul>
-                <li>
+                <li @click="toCart">
                     <i></i>
                     <div class="cart">{{cartNum}}</div>
                     <p>购物车</p>
@@ -99,6 +99,8 @@
 </template>
 
 <script>
+    import Vuex from 'vuex'
+    import mock from "mockjs";
     export default {
         data() {
             return {
@@ -124,17 +126,28 @@
                 goods:{},
             };
         },
+        computed:{
+            ...Vuex.mapGetters(['getGoodList']),
+            
+        },
         methods: {
+            toCart(){
+                this.$router.push('/cart');
+            },
             //加入购物车
             addToCart(){
+                this.$toast('加入成功');
                 this.goods={
                     id:this.goodInfo.id,
                     name:this.name,
                     num:this.num,
-                    price:this.goodInfo.price,
+                    price:  this.goodInfo.price,
+                    market_price:  this.goodInfo.market_price,
                     img:this.goodInfo.img
-                };
-                console.log(this.goods)
+                },
+                this.$store.commit('addGood',this.goods);
+                //购物车商品数量
+                this.cartNum = this.getGoodList.length;
             },
             onSelect(option) {
                 // Toast(option.name);
@@ -142,6 +155,8 @@
             },
         },
         created() {
+            //购物车商品数量
+            this.cartNum=this.getGoodList.length;
             //设置title
             this.$route.meta.title = this.$route.params.id;
             this.name = this.$route.params.id;
