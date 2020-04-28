@@ -46,6 +46,18 @@ mock.mock("http://kk.com/brands.php", function () {
     // console.log(res);
     return res;
 });
+//图形验证码
+mock.mock("http://kk.com/imgCheckOut.php", function () {
+    let res = (Math.random() * (9999-1000)+1000).toFixed(0);
+    // console.log(res);
+    return res;
+});
+//图形验证码
+mock.mock("http://kk.com/telCheckOut.php", function () {
+    let res = (Math.random() * (999999-100000)+100000).toFixed(0);
+    // console.log(res);
+    return res;
+});
 //搜索结果页面数据
 mock.mock("http://kk.com/search/result.php", function () {
     let i;

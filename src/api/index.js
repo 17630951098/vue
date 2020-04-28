@@ -40,7 +40,16 @@ let getBrandsDataAPI = (data) => {
 let getSearchResultDataAPI=(data)=>{
     return axios.post('/search/result.php')
 };
+
+//图形验证码
+let getImgAPI=(data)=>{
+    return axios.get('imgCheckOut.php')
+};
+//图形验证码
+let getTelAPI=(data)=>{
+    return axios.get('telCheckOut.php')
+};
 export {
     getHomeBannerDataAPI, getHomeDataAPI, getHomeIconAPI, getHomeTabListAPI, getHomeBrandAPI, getHomeTableAPI, getSortDataAPI, getBrandsDataAPI,
-    getSearchResultDataAPI
+    getSearchResultDataAPI,getImgAPI, getTelAPI
 }
