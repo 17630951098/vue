@@ -49,7 +49,12 @@ let getImgAPI=(data)=>{
 let getTelAPI=(data)=>{
     return axios.get('telCheckOut.php')
 };
+//
+let getLoginAPI=(data)=>{
+    return axios.get('login.php')
+};
 export {
     getHomeBannerDataAPI, getHomeDataAPI, getHomeIconAPI, getHomeTabListAPI, getHomeBrandAPI, getHomeTableAPI, getSortDataAPI, getBrandsDataAPI,
-    getSearchResultDataAPI,getImgAPI, getTelAPI
+    getSearchResultDataAPI,getImgAPI, getTelAPI, getLoginAPI
+    
 }

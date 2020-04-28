@@ -46,6 +46,15 @@ mock.mock("http://kk.com/brands.php", function () {
     // console.log(res);
     return res;
 });
+//login
+mock.mock("http://kk.com/login.php", function () {
+    let res = {
+        code:'0',
+        result:'ok'
+    };
+    // console.log(res);
+    return res;
+});
 //图形验证码
 mock.mock("http://kk.com/imgCheckOut.php", function () {
     let res = (Math.random() * (9999-1000)+1000).toFixed(0);

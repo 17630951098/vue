@@ -9,12 +9,12 @@
                 @click-right="onClickRight"
         />
         <div class="container">
-            <form method="post">
+            <form method="post" @submit.prevent>
                 <!--用户名-->
                 <div class="input" :class="hasBottom ? 'has' : ''">
                     <van-icon color="#787878" size="0.42rem" name="user-circle-o"/>
                     <input
-                            @blur="hasBottom=false"
+                            @blur="hasBottom = false"
                             @click.stop="onInput(1)"
                             ref="code"
                             v-model="username"
@@ -27,85 +27,151 @@
                 <div class="input" :class="obk ? 'has' : ''">
                     <van-icon color="#787878" size="0.42rem" name="lock"/>
                     <input
-                            @blur="obk=false"
+                            @blur="obk = false"
                             @click.stop="onInput(2)"
                             ref="code"
                             v-model="password"
-                            :type="type?'password':'text'"
+                            :type="type ? 'password' : 'text'"
                             name="password"
                             placeholder="邮箱/手机"
                     />
-                    <van-icon @click="type=!type" class="del" size="0.36rem" color="#787878" name="eye"/>
+                    <van-icon @click="type = !type" class="del" size="0.36rem" color="#787878" name="eye"/>
                 </div>
-               <button class="sub">登录</button>
+                <button
+                        @click="login(1)"
+                        :style="{ backgroundColor: this.username != '' && this.password != '' ? '#000' : '' }"
+                        class="sub"
+                >
+                    登录
+                </button>
                 <p class="forgot">忘记密码？</p>
                 <div class="sc">
                     <van-divider
-                            :style="{color: '#999','font-size': '.24rem','font-weight': 400, borderColor: '#999', padding: '0 16px' }"
+                            :style="{
+                            color: '#999',
+                            'font-size': '.24rem',
+                            'font-weight': 400,
+                            borderColor: '#999',
+                            padding: '0 16px',
+                        }"
                     >
                         使用其它方式登录
                     </van-divider>
                 </div>
             </form>
             <ul class="list">
-                <li><a href="#">
-                    <img src="http://basedata.azoyacdn.com/uploads/basedata/images/fd598b23364e95f373757e068801e2b0.png" alt="">
-                </a></li>
-                <li><a href="#">
-                    <img src="http://basedata.azoyacdn.com/uploads/basedata/images/a8f8396a2af7a07555247dbd906d1a68.png" alt="">
-                </a></li>
-                <li><a href="#">
-                    <img src="http://basedata.azoyacdn.com/uploads/basedata/images/005699ef3bb8ec2bba25e1496c45d65b.png" alt="">
-                </a></li>
+                <li @click="login(2)">
+                    <a>
+                        <img
+                                src="http://basedata.azoyacdn.com/uploads/basedata/images/fd598b23364e95f373757e068801e2b0.png"
+                                alt=""
+                        />
+                    </a>
+                </li>
+                <li @click="login(3)">
+                    <a>
+                        <img
+                                src="http://basedata.azoyacdn.com/uploads/basedata/images/a8f8396a2af7a07555247dbd906d1a68.png"
+                                alt=""
+                        />
+                    </a>
+                </li>
+                <li @click="login(4)">
+                    <a>
+                        <img
+                                src="http://basedata.azoyacdn.com/uploads/basedata/images/005699ef3bb8ec2bba25e1496c45d65b.png"
+                                alt=""
+                        />
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 </template>
 
 <script>
-    import $ from 'jquery'
+    import $ from "jquery";
+    
     export default {
         data() {
             return {
-                pwd:false,
+                pwd: false,
                 //下边框
                 hasBottom: false,
                 //提交
                 submit: false,
-                username: "",
-                password:'',
-                obk:false,
-                type:true
+                username: "17630951098@163.com",
+                password: "x.y.tdrhg",
+                obk: false,
+                type: true,
             };
         },
         methods: {
-            onInput(type){
-                if (type==1){
-                    this.hasBottom = true
-                }else {
-                    this.obk = true
+            login(type) {
+                if (type == 1) {
+                    this.$api
+                        .getLoginAPI({
+                            promise: {
+                                fmdo: "username/telphone",
+                                username: this.username,
+                                password: this.password,
+                            },
+                        })
+                        .then((res) => {
+                            if (res.data.code == 0) {
+                                this.$jsCookie.set('f_username', this.username, {expires: 365});
+                                this.$toast("登录成功");
+                                if (this.$route.query.then) {
+                                    this.$router.push(this.$route.query.then);
+                                } else {
+                                    this.$router.push("/");
+                                }
+                            }
+                            console.log(res);
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                            this.$toast("登录失败");
+                        });
                 }
-                
+                else if (type==2||type==3||type==4){
+                    this.$api.getLoginAPI({
+                        fmdo: "third",
+                        dopost: "login",
+                        token: ""
+                    }).then((res) => {
+        
+                    }).catch((err) => {
+                        this.$toast('登录失败')
+                    })
+                }
+            },
+            onInput(type) {
+                if (type == 1) {
+                    this.hasBottom = true;
+                } else {
+                    this.obk = true;
+                }
             },
             onClickLeft() {
-                this.$router.go(-1)
+                this.$router.go(-1);
             },
             onClickRight() {
                 this.$router.push("/register");
             },
         },
         mounted() {
-            this.$nextTick(()=>{
-            
-            })
-        }
+            this.$nextTick(() => {
+            });
+        },
     };
 </script>
 
 <style scoped lang="less">
-    .login{
+    .login {
         height: 100vh;
     }
+    
     .container {
         padding-top: 0.4rem;
         background-color: #ffffff;
@@ -133,7 +199,7 @@
                     border: none;
                     outline: none;
                     text-decoration: none;
-                    background-color: #FFFFFF;
+                    background-color: #ffffff;
                 }
                 
                 .del {
@@ -145,41 +211,47 @@
             .has {
                 border-bottom: 1px solid #000;
             }
-            .sub{
+            
+            .sub {
                 margin-top: 0.5rem;
-                margin-bottom: .3rem;
-                border-radius: .03rem;
+                margin-bottom: 0.3rem;
+                border-radius: 0.03rem;
                 overflow: hidden;
-                height: .88rem;
-                line-height: .8rem;
+                height: 0.88rem;
+                line-height: 0.8rem;
                 display: block;
                 width: 6.3rem;
-                font-size: .28rem;
+                font-size: 0.28rem;
                 background: #ccc;
                 border: 0;
-                color: #FFFFFF;
+                color: #ffffff;
             }
-            .forgot{
+            
+            .forgot {
                 text-align: right;
                 float: right;
                 color: #999;
             }
-            .sc{
+            
+            .sc {
                 width: 100%;
                 display: block;
                 margin-top: 2rem;
             }
         }
-        .list{
+        
+        .list {
             display: flex;
             justify-content: center;
             margin-top: 1rem;
-            li{
-                width: .64rem;
-                height: .64rem;
+            
+            li {
+                width: 0.64rem;
+                height: 0.64rem;
                 vertical-align: middle;
-                margin: 0 .5rem;
-                img{
+                margin: 0 0.5rem;
+                
+                img {
                     width: 100%;
                 }
             }
