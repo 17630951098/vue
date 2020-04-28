@@ -15,7 +15,7 @@
                     <p v-if="item.price.length<10&&item.price.length!=0">{{item.price}}</p>
                     <p v-else>£{{(Math.random()*100-10).toFixed(2)}}</p>
                     <p>参考价：￥{{Math.abs((Math.random()*800-100).toFixed(2))}}</p>
-                    <button class="btn">
+                    <button @click.stop="addToCart(item)" class="btn">
                         加入购物篮
                     </button>
                 </div>
@@ -35,7 +35,7 @@
                     </p>
                     <p><span>{{item.price}}</span><span>{{item.suggest_price}}</span></p>
                     <p>{{item.market_price}}</p>
-                    <button class="btn" :class="item.addCart=='已售罄'?'disabled':''">
+                    <button @click.stop="addToiCart(item)" class="btn" >
                         {{item.addCart}}
                     </button>
                 </div>
@@ -47,8 +47,40 @@
 
 <script>
     export default {
+        data(){
+            return{
+                goods:"",
+            }
+        },
         props:['tabdata','toptab'],
         methods:{
+            addToiCart(item){
+                this.$toast('加入成功');
+                this.goods = {
+                    id: '',
+                    name: item.goodsName,
+                    num: 1,
+                    price: item.price,
+                    market_price: item.market_price,
+                    img: item.src
+                },
+                    this.$store.commit('addGood', this.goods);
+            },
+            //加入购物车
+            addToCart(item) {
+                this.$toast('加入成功');
+                this.goods = {
+                    id: '',
+                    name: item.goodsName,
+                    num: 1,
+                    price: item.price,
+                    market_price: '',
+                    img: item.imgUrl
+                },
+                    this.$store.commit('addGood', this.goods);
+                //购物车商品数量
+                // this.cartNum = this.getGoodList.length;
+            },
             toDetail(name){
                 this.$router.push({name: 'Detail', params: {id:name}})
             }

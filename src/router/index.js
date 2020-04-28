@@ -10,6 +10,7 @@ import PersonalCenter from "../views/PersonalCenter.vue";
 import Detail from "../views/Detail.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
+import Setting from "../views/Setting.vue";
 
 Vue.use(VueRouter);
 
@@ -98,17 +99,25 @@ const routes = [
             index: 4
         }
     },
+    {
+        path: "/personalcenter/setting",
+        name: "Setting",
+        component: Setting,
+        meta: {
+            title: '账户设置',
+        }
+    },
 ];
 
 const router = new VueRouter({
     routes,
     //跳转顶部归零
-    scrollBehavior: () => {
+    /*scrollBehavior: () => {
         return {
             x: 0,
             y: 0,
         };
-    },
+    },*/
 });
 import jsCookie from 'js-cookie'
 router.beforeEach((to, from, next) => {
@@ -116,6 +125,7 @@ router.beforeEach((to, from, next) => {
     if (to.meta.title) {
         document.title = to.meta.title;
     }
+    window.scrollTo(0,0);
     if (to.meta.auth){
         if (!jsCookie.get('f_username')){
             next('/login?then='+to.path)

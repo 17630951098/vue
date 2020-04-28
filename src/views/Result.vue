@@ -19,6 +19,12 @@
                 <van-icon color="#787878" size="0.5rem" name="home-o"/>
             </div>
         </header>
+        <van-sticky>
+        <van-dropdown-menu>
+            <van-dropdown-item v-model="value1" :options="option1"/>
+            <van-dropdown-item v-model="value2" :options="option2"/>
+        </van-dropdown-menu>
+        </van-sticky>
         <!--列表-->
         <section class="container" v-if="result">
             <ul :class="count==true?'list':'square'">
@@ -41,13 +47,19 @@
                 </li>
             </ul>
         </section>
-        
+        <div class="backTop">
+            <p @click="$router.push('/cart')">
+                <span>{{getGoodList.length}}</span>
+            </p>
+            <!--返回顶部-->
+            <p></p>
+        </div>
     </div>
 </template>
 
 <script>
     import Vuex from "vuex";
-
+    import $ from 'jquery'
     export default {
         data(){
             return{
@@ -56,10 +68,24 @@
                 style:0,
                 count:true,
                 goods:'',
-                cartNum:0
+                cartNum:0,
+                value1: 0,
+                value2: 'a',
+                option1: [
+                    {text: '全部商品', value: 0},
+                    {text: '新款商品', value: 1},
+                    {text: '活动商品', value: 2},
+                ],
+                option2: [
+                    {text: '默认排序', value: 'a'},
+                    {text: '好评排序', value: 'b'},
+                    {text: '销量排序', value: 'c'},
+                    {text: '价格排序', value: 'd'},
+                ],
             }
         },
         methods:{
+            //加入购物车
             addCart(item){
                 this.$toast('加入成功');
                 this.goods = {
@@ -74,6 +100,7 @@
                 //购物车商品数量
                 this.cartNum = this.getGoodList.length;
             },
+            //详情页
             toDetail(name) {
                 this.$router.push({name: 'Detail', params: {id: name}})
             },
@@ -105,9 +132,10 @@
         },
         computed: {
             ...Vuex.mapGetters(['getGoodList']),
-        
         },
         created() {
+            //设置title
+            this.$route.meta.title = this.$route.query.key;
             //购物车商品数量
             this.cartNum = this.getGoodList.length;
             //输入框传值
@@ -120,6 +148,23 @@
                 // console.log(this.result);
             }).catch(err=>{
                 this.$toast('404--网络错误')
+            })
+        },
+        mounted() {
+            this.$nextTick(function () {
+                $(window).on("scroll", () => {
+                    let top = $(window).scrollTop() > 200 ? $(".backTop p:nth-child(2)").stop().fadeIn() : $(".backTop p:nth-child(2)").stop().fadeOut();
+                });
+                $(".backTop").on("click", () => {
+                    $("body,html").animate(
+                        {
+                            scrollTop: 0,
+                        },
+                        1000
+                    );
+                });
+                //获取标签栏距离顶部的距离
+                this.scrolltop = $(".Result").offset().top;
             })
         }
     }
@@ -313,6 +358,45 @@
                     }
                 }
             }
+        }
+    }
+    .backTop{
+        position: fixed;
+        right: .3rem;
+        bottom: 1.5rem;
+        p{
+            display: block;
+            position: relative;
+            width: .96rem;
+            height: 0.96rem;
+            background: url(http://basedata.azoyacdn.com/uploads/basedata/images/ea678dab5c6afc38909f2b547c869ecc.png) no-repeat 0 -0.9rem;
+            background-size: 3.1rem auto;
+            span{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #d72245;
+                position: absolute;
+                right: 0;
+                top: -.1rem;
+                font-size: 0.24rem;
+                color: #fff;
+                width: .4rem;
+                height: .4rem;
+                line-height: .4rem;
+                text-align: center;
+                border-radius: .18rem;
+                font-style: normal;
+            }
+        }
+    
+        p:nth-of-type(2) {
+            display: none;
+            margin-top: .5rem;
+            background: url(http://basedata.azoyacdn.com/uploads/basedata/images/ea678dab5c6afc38909f2b547c869ecc.png) no-repeat -1.08rem -0.92rem;
+            background-size: 3.1rem auto;
+            width: 0.92rem;
+            height: 0.92rem;
         }
     }
 </style>

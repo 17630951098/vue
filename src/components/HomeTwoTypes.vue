@@ -13,7 +13,7 @@
                         <span v-if="item.price!=item.final_price">£{{item.final_price}}</span>
                     </p>
                     <p>参考价：￥{{item.reference_price}}</p>
-                    <div class="btn">
+                    <div @click.stop="addToCart(item)" class="btn">
                         加入购物篮
                     </div>
                 </div>
@@ -24,8 +24,28 @@
 
 <script>
     export default {
+        data() {
+            return {
+                goods: "",
+            }
+        },
         props:['popdata'],
         methods:{
+            //加入购物车
+            addToCart(item) {
+                this.$toast('加入成功');
+                this.goods = {
+                    id: '',
+                    name: item.name,
+                    num: 1,
+                    price: '£'+item.price,
+                    market_price: '£' +item.reference_price,
+                    img: item.image_url
+                },
+                    this.$store.commit('addGood', this.goods);
+                //购物车商品数量
+                // this.cartNum = this.getGoodList.length;
+            },
             toDetail(name) {
                 this.$router.push({name: 'Detail', params: {id: name}})
             }
