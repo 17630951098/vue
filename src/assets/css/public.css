@@ -66,6 +66,16 @@ a {
     font-size: 0.36rem;
 }
 
+.van-popup{
+
+}
+.van-popup .van-share-sheet__options{
+    padding: 1rem .2rem;
+}
+
+.van-popup .van-share-sheet__options::-webkit-scrollbar {
+    display: none;
+}
 .van-nav-bar .van-nav-bar__right .van-nav-bar__text{
     color: #787878;
 }

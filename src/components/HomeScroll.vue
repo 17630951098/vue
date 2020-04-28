@@ -2,8 +2,8 @@
     <div class="HomeScroll" v-if="data">
         <div class="container">
             <ul class="list">
-                <li v-for="(item,index) in data">
-                    <div><a href="#">
+                <li @click="toDetail(item.name)"  v-for="(item,index) in data">
+                    <div><a href="javascript:void (0);">
                         <div class="img">
                             <!--图片-->
                             <img :src="item.url" alt="">
@@ -11,7 +11,7 @@
                     </a></div>
                     <div class="bot">
                         <!--名字描述-->
-                        <a href="#">
+                        <a href="javascript:void (0);">
                             <div class="name">
                                 <p>{{item.name}}</p>
                             </div>
@@ -36,7 +36,12 @@
 
 <script>
     export default {
-        props:['data']
+        props:['data'],
+        methods:{
+            toDetail(name) {
+                this.$router.push({name: 'Detail', params: {id: name}})
+            }
+        }
     }
 </script>
 

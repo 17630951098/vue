@@ -1,7 +1,7 @@
 <template>
     <div class="HomeTwoTypes" v-if="popdata">
         <ul class="container">
-            <li v-for="(item,index) in popdata" :key="index">
+            <li @click="toDetail(item.name)" v-for="(item,index) in popdata" :key="index">
                 <div class="img">
                     <img :src="item.image_url" alt="">
                 </div>
@@ -25,6 +25,11 @@
 <script>
     export default {
         props:['popdata'],
+        methods:{
+            toDetail(name) {
+                this.$router.push({name: 'Detail', params: {id: name}})
+            }
+        },
         created() {
         
         }

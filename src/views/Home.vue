@@ -39,8 +39,8 @@
         </van-swipe>
         <!--10个分类展示-->
         <ul class="smallIcon" v-if="iconData">
-            <li v-for="(item, index) in iconData">
-                <a class="ov" href="#">
+            <li @click="search(item.name)" v-for="(item, index) in iconData">
+                <a class="ov" href="javascript:void(0);">
                     <img :src="item.imgUrl" alt=""/>
                     <p>{{ item.name }}</p>
                 </a>
@@ -69,8 +69,8 @@
         <!--点击选购-->
         <section class="index-activity">
             <ul class="hot-activity">
-                <li>
-                    <a href="#">
+                <li @click="search('Huda香港仓')">
+                    <a href="javascript:void (0);">
                         <img
                                 src="//img-resource.azoyacdn.com/media/46d515b9032dc66012d658985aa39d1b/11860/0761e928948b75dea35ec8785f00a6ec.jpg"
                                 alt=""
@@ -85,8 +85,8 @@
                         </div>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li @click="search('Filorga')">
+                    <a href="javascript:void (0);">
                         <img
                                 src="//img-resource.azoyacdn.com/media/46d515b9032dc66012d658985aa39d1b/8425/479e528dd6615af2b8f362a83739a79d.jpg"
                                 alt=""
@@ -103,7 +103,7 @@
                 </li>
             </ul>
             <ul class="hot-activity2">
-                <li>
+                <li @click="search('Natasha')">
                     <img
                             src="//img-resource.azoyacdn.com/media/3a8f46b2a3236da37e23da09f4275cf8/11398/855f94f8cf20b737c78645eefa18307d.jpg"
                             alt=""
@@ -117,7 +117,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li @click="search('Eucerin')">
                     <img
                             src="//img-resource.azoyacdn.com/media/3a8f46b2a3236da37e23da09f4275cf8/8025/a1fdf23be844e83ed7e3fe5a5be9b66d.jpg"
                             alt=""
@@ -131,7 +131,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li @click="search('雅顿')">
                     <img
                             src="//img-resource.azoyacdn.com/media/3a8f46b2a3236da37e23da09f4275cf8/14228/3a3c29932f1897721b9bc062781f64aa.jpg"
                             alt=""
@@ -197,7 +197,7 @@
                     </van-swipe-item>
                 </van-swipe>
                 <ul class="brand">
-                    <li v-for="(item,index) in brand">
+                    <li  v-for="(item,index) in brand">
                         <a href="#">
                             <img :src="item.url" alt="">
                         </a>
@@ -275,7 +275,7 @@
                 </div>
             </div>
             <!--查看更多-->
-            <div class="more">
+            <div @click="search('小众美妆')" class="more">
                 查看更多 &gt;
             </div>
         </section>
@@ -501,6 +501,14 @@
             TabCom, HomeScroll,HomeTwoTypes
         },
         methods: {
+            search(item){
+                this.$router.push({
+                    name: "Result",
+                    query: {
+                        key: item,
+                    },
+                });
+            },
             toSearch(){
                 this.$router.push('/search')
             },
@@ -546,7 +554,7 @@
             this.$api
                 .getHomeDataAPI({page_type: "home"})
                 .then((res) => {
-                    console.log(res.data.results);
+                    // console.log(res.data.results);
                     this.HomeData = res.data.results;
                 })
                 .catch((err) => {

@@ -85,4 +85,18 @@ mock.mock("http://kk.com/search/result.php", function () {
     return res;
 });
 
+//详情页页面数据=
+mock.mock("http://kk.com/detail.php", function () {
+    let obj;
+        obj = {
+            id:(Math.random()*(999999999-100000000)+100000000).toFixed(0),
+            img: mock.Random.image("375x300"),
+            name: mock.Random.ctitle(10),
+            price: '£' + mock.Random.float(20, 200).toFixed(2),
+            market_price: '£' + mock.Random.float(100, 500).toFixed(2),
+            foreign_price: '￥' + mock.Random.float(100, 1000).toFixed(2),
+        };
+    return obj;
+});
+
 export { mock };

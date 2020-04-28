@@ -53,8 +53,13 @@ let getTelAPI=(data)=>{
 let getLoginAPI=(data)=>{
     return axios.get('login.php')
 };
+let getDetailDataAPI = (data) => {
+    return axios.get('detail.php',{
+        params: {id: data.id}
+    })
+};
 export {
     getHomeBannerDataAPI, getHomeDataAPI, getHomeIconAPI, getHomeTabListAPI, getHomeBrandAPI, getHomeTableAPI, getSortDataAPI, getBrandsDataAPI,
-    getSearchResultDataAPI,getImgAPI, getTelAPI, getLoginAPI
+    getSearchResultDataAPI,getImgAPI, getTelAPI, getLoginAPI, getDetailDataAPI
     
 }

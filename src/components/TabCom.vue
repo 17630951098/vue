@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="TabCom" v-if="tabdata">
-            <div class="item" v-for="(item,index) in tabdata" :key="index">
+            <div class="item" @click="toDetail(item.goodsName)" v-for="(item,index) in tabdata" :key="index">
                 <div class="img">
                     <img :src="item.imgUrl">
                 </div>
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="TabCom" v-if="toptab">
-            <div class="item" v-for="(item,index) in toptab" :key="index">
+            <div @click="toDetail(item.name)" class="item" v-for="(item,index) in toptab" :key="index">
                 <div class="img">
                     <img :src="item.src">
                 </div>
@@ -48,6 +48,11 @@
 <script>
     export default {
         props:['tabdata','toptab'],
+        methods:{
+            toDetail(name){
+                this.$router.push({name: 'Detail', params: {id:name}})
+            }
+        },
         created() {
             // console.log(this)
             // console.log(this.tabdata)

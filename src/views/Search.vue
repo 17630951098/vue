@@ -2,7 +2,7 @@
     <div class="Search">
         <!--头部搜索框-->
         <header class="header">
-            <form method="get" class="form">
+            <form @submit.prevent.stop method="get" class="form">
                 <button class="btn" @click="goBack">
                     <van-icon size="0.4rem" name="arrow-left"/>
                 </button>
