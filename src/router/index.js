@@ -11,6 +11,7 @@ import Detail from "../views/Detail.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Setting from "../views/Setting.vue";
+import Order from "../views/Order.vue";
 
 Vue.use(VueRouter);
 
@@ -79,6 +80,15 @@ const routes = [
             title:'购物车',
             auth:true,
             index: 3
+        }
+    },
+    {
+        path: "/order",
+        name: "Order",
+        component: Order,
+        meta: {
+            title:'确认订单',
+            auth:true,
         }
     },
     {

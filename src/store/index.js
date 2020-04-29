@@ -32,10 +32,14 @@ export default new Vuex.Store({
                 img: 'https://source-feelunique.azoyacdn.com/media/catalog/product/t/h/The_Ordinary_Caffeine_Solution_5____EGCG_30ml_1502351082.png?imageMogr2/thumbnail/400x400/extent/400x400/background/d2hpdGU=',
             }
         ],
+        buyList:[],
     },
     getters:{
         getGoodList(state){
-            return state.goodList
+            return state.goodList;
+        },
+        getBuyList(state){
+            return state.buyList;
         }
     },
     mutations: {

@@ -89,12 +89,26 @@ export default {
         };
     },
     methods: {
+        /*结算*/
         goToPay(){
-        
+            if (this.selectGoods.length!=0){
+                this.getGoodList.forEach((item, index) => {
+                    for (let i = 0; i < this.selectGoods.length; i++) {
+                        if (item.id == this.selectGoods[i]) {
+                            this.getBuyList.push(item)
+                        }
+                    }
+                });
+                this.$router.push('/order')
+            }else {
+                this.$toast('请选择商品进行结算')
+            }
+            // console.log(this.selectGoods);
+            // console.log(this.getBuyList)
         },
         //收藏
         collectGoods(index){
-            console.log(index)
+            // console.log(index)
             this.collect=!this.collect;
         },
         //商品复选框
@@ -182,6 +196,7 @@ export default {
             return totalprice= totalprice.toFixed(2);
         },
         ...Vuex.mapGetters(["getGoodList"]),
+        ...Vuex.mapGetters(['getBuyList']),
     },
     created() {
         this.getGoodList.forEach((item,index)=>{

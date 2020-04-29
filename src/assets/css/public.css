@@ -79,3 +79,13 @@ a {
 .van-nav-bar .van-nav-bar__right .van-nav-bar__text{
     color: #787878;
 }
+
+.van-card{
+    background-color: #FFFFFF;
+    border: 1px solid #dbdbdb;
+    border-left: 0;
+    border-right: 0;
+}
+.van-card .van-card__price{
+    color: #ff0036;
+}
