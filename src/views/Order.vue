@@ -68,7 +68,7 @@
                 this.$router.push('/address');
             },
             onClickLeft(){
-                this.$router.push('/cart')
+                this.$router.go(-1)
             }
         },
         computed:{

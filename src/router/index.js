@@ -12,6 +12,7 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Setting from "../views/Setting.vue";
 import Order from "../views/Order.vue";
+import Address from "../views/Address.vue";
 
 Vue.use(VueRouter);
 
@@ -88,6 +89,14 @@ const routes = [
         component: Order,
         meta: {
             title:'确认订单',
+            auth:true,
+        }
+    },{
+        path: "/address",
+        name: "Address",
+        component: Address,
+        meta: {
+            title:'添加收货地址',
             auth:true,
         }
     },
