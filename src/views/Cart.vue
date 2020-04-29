@@ -3,7 +3,7 @@
         <!--头部-->
         <header class="header">
             <nav class="nav">
-                <van-icon @click="$router.go(-1)" size="0.45rem" color="#787878" name="arrow-left" />
+                <van-icon @click="back" size="0.45rem" color="#787878" name="arrow-left" />
                 <p>购物车</p>
                 <p></p>
             </nav>
@@ -178,6 +178,9 @@ export default {
             // this.totalPrice = this.total_price;
             this.$store.commit("modifyNum", value);
         },
+        back(){
+            this.$router.go(-1)
+        }
     },
     computed: {
         allPrice(){

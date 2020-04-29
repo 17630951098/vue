@@ -153,7 +153,7 @@
         mounted() {
             this.$nextTick(function () {
                 $(window).on("scroll", () => {
-                    let top = $(window).scrollTop() > 200 ? $(".backTop p:nth-child(2)").stop().fadeIn() : $(".backTop p:nth-child(2)").stop().fadeOut();
+                    let top = $(window).scrollTop() > 100 ? $(".backTop p:nth-child(2)").stop().fadeIn() : $(".backTop p:nth-child(2)").stop().fadeOut();
                 });
                 $(".backTop").on("click", () => {
                     $("body,html").animate(
