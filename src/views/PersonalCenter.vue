@@ -36,7 +36,8 @@
                     <p>已取消</p>
                 </li>
             </ul>
-            <van-divider style="background-color: #f0f0f0;height: 0.2rem"/>
+            <div class="divider" style="width: 100%;height:0.2rem;background-color: #f0f0f0"></div>
+<!--            <van-divider style="background-color: #f0f0f0;height: 0.2rem;padding: 0"/>-->
             <div class="order">
                 <span>我的服务</span> <span></span>
             </div>
@@ -50,7 +51,7 @@
                     <li><span></span><span>分享奖励</span></li>
                 </ul>
             </div>
-            <van-divider style="background-color: #f0f0f0;height: 0.2rem"/>
+            <div class="divider" style="width: 100%;height:0.2rem;background-color: #f0f0f0"></div>
             <!--帮助中心-->
             <div class="order">
                 <span>帮助中心</span> <span><van-icon size="0.4rem" name="arrow"/></span>
@@ -103,7 +104,7 @@
         }
         .serve{
             ul{
-                padding: .4rem;
+                padding:  .4rem;
                 width: 100%;
                 display: flex;
                 flex-wrap: wrap;

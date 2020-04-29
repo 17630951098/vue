@@ -225,7 +225,7 @@
             ul{
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: start;
+                justify-content: flex-start;
                 li {
                     display: flex;
                     flex-direction: row;

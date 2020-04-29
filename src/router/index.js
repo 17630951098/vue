@@ -76,6 +76,7 @@ const routes = [
         name: "Cart",
         component: Cart,
         meta: {
+            title:'购物车',
             auth:true,
             index: 3
         }

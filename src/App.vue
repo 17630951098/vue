@@ -23,7 +23,8 @@
                     <img :src="props.active ? icon.brand : icon.brand_inactive"/>
                 </template>
             </van-tabbar-item>
-            <van-tabbar-item to="cart">
+            
+            <van-tabbar-item :badge="getGoodList.length" to="cart">
                 <span>购物篮</span>
                 <template #icon="props">
                     <img :src="icon.cart_inactive"/>
@@ -39,6 +40,7 @@
     </div>
 </template>
 <script>
+    import Vuex from 'vuex'
     export default {
         data(){
             return{
@@ -57,8 +59,11 @@
                 },
             }
         },
+        computed:{
+            ...Vuex.mapGetters(['getGoodList'])
+        },
         created() {
-            this.active=this.$route.meta.index
+            this.active=this.$route.meta.index;
         }
     }
 </script>

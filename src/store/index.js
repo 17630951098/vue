@@ -16,7 +16,7 @@ export default new Vuex.Store({
                 img:'https://source-feelunique.azoyacdn.com/media/catalog/product/t/h/The_Ordinary___039_Buffet__039__30ml_1522741668_2.png?imageMogr2/thumbnail/400x400/extent/400x400/background/d2hpdGU=',
             },
             {
-                id: 1475887594,
+                id: 5285887594,
                 market_price: '£' + 100,
                 name: 'Noble Isle 香氛沐浴啫喱四件套装 4 x 30ml',
                 num:10,
@@ -24,7 +24,7 @@ export default new Vuex.Store({
                 img: 'https://source-feelunique.azoyacdn.com/media/catalog/product/n/o/Noble_Fragrance_Sampler_Gift_Set_4_x_30ml_1540557680.jpg?imageMogr2/thumbnail/400x400/extent/400x400/background/d2hpdGU=',
             },
             {
-                id: 5285887594,
+                id: 8575887594,
                 name: 'The Ordinary 5%咖啡因 + EGCG眼部精华 30ml 淡化黑眼圈',
                 num: 1,
                 price: '£' + 5.80,
@@ -43,9 +43,10 @@ export default new Vuex.Store({
         addGood(state, good){
             let can=true;
             state.goodList.forEach((item,index)=>{
+                //有的数据没有id
                 if (item.id == good.id && item.name == good.name) {
                     can=false;
-                    item.num=good.num
+                    item.num+=good.num
                 }
             });
             if (can){

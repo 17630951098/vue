@@ -1077,7 +1077,7 @@ let tabList = [
         imgUrl:
             "https://source-feelunique.azoyacdn.com/media/catalog/product/t/h/The_Ordinary___039_Buffet__039__30ml_1522741668_2.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
         goodsName: "【极速香港仓】The Ordinary buffet多重胜肽精华 30ml 抗老化",
-        price: "】TheOrdinarybuffet多重胜肽精华30ml抗老化",
+        price: "£47.00",
         address: "香港仓",
     },
     {
@@ -1112,7 +1112,7 @@ let tabList = [
         imgUrl:
             "https://source-feelunique.azoyacdn.com/media/catalog/product/h/u/Huda_20Beauty_20Rose_20Gold_20Palette_20Remastered_2016.6g_0_1531297428_1.jpg?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
         goodsName: "【极速香港仓】Huda Beauty 玫瑰金18色眼影盘 16.6g",
-        price: "】HudaBeauty玫瑰金18色眼影盘16.6g",
+        price: "£100.00",
         address: "香港仓",
     },
     {
@@ -1232,7 +1232,7 @@ let tabList = [
             "https://source-feelunique.azoyacdn.com/media/catalog/product/t/h/The_Ordinary_Matrixyl_10____HA_30ml_1502290824_4.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
         goodsName:
             "【极速香港仓】The Ordinary 10%五胜肽 + 透明质酸精华 30ml 抗老化",
-        price: "】TheOrdinary10%五胜肽+透明质酸精华30ml抗老化",
+        price: "£27.00",
         address: "香港仓",
     },
     {
@@ -1246,7 +1246,7 @@ let tabList = [
         imgUrl:
             "https://source-feelunique.azoyacdn.com/media/catalog/product/t/h/The_Ordinary_High_Adherance_Silicone_Primer_30ml_1502287025_2.png?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
         goodsName: "【极速香港仓】The Ordinary 高保湿遮瑕紧致妆前乳 30ml",
-        price: "】TheOrdinary高保湿遮瑕紧致妆前乳30ml",
+        price: "£27.00",
         address: "香港仓",
     },
     {
@@ -1274,7 +1274,7 @@ let tabList = [
         imgUrl:
             "https://source-feelunique.azoyacdn.com/media/catalog/product/e/l/elizabeth_arden_ceramide_micro_capsule_skin_replenishing_essence_90ml_1582795854.jpg?imageMogr2/thumbnail/210x/extent/210x/background/d2hpdGU=",
         goodsName: "Elizabeth Arden 伊丽莎白·雅顿 神经酰胺滋养护肤补水精华 90ml",
-        price: "ethArden伊丽莎白·雅顿神经酰胺滋养护肤补水精华90ml",
+        price: "£27.00",
         address: "英国仓",
     },
     {

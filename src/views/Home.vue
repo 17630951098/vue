@@ -526,6 +526,7 @@
         },
         computed: {},
         created() {
+            this.active = this.$route.meta.index;
             //tab 切换
             this.$api.getHomeTableAPI({}).then(res=>{
                 this.topTab=res.data;
@@ -747,7 +748,7 @@
                     overflow: hidden;
                     li{
                         display: flex;
-                        justify-content: start;
+                        justify-content: flex-start;
                         align-items: center;
                         margin-bottom: 0.5rem;
                         width: 45%;
