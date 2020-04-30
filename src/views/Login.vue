@@ -124,7 +124,12 @@
                                 if (this.$route.query.then) {
                                     this.$router.push(this.$route.query.then);
                                 } else {
-                                    this.$router.push("/");
+                                    if (this.$route.params.path){
+                                        this.$router.push(this.$route.params.path)
+                                    }else {
+                                        this.$router.push("/");
+                                    }
+                                    
                                 }
                             }
                             console.log(res);

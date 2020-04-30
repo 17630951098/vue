@@ -148,7 +148,11 @@
                     }
                 }else{
                     this.$toast('请先登录');
-                    this.$router.push('/login')
+                    this.$router.push({
+                        name: 'Login', params: {
+                            path: this.$route.path
+                        }
+                    })
                 }
                
                 this.$store.commit('addGood',this.goods);

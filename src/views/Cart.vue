@@ -5,7 +5,9 @@
             <nav class="nav">
                 <van-icon @click="back" size="0.45rem" color="#787878" name="arrow-left" />
                 <p>购物车</p>
-                <p></p>
+                <p>
+                    <van-icon @click="$router.push('/')" color="#787878" size=".4rem" name="wap-home-o"/>
+                </p>
             </nav>
         </header>
         <!--内容区-->
