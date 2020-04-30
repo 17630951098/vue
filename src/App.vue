@@ -64,7 +64,8 @@
             ...Vuex.mapGetters(['getGoodList'])
         },
         created() {
-            this.active=this.$route.meta.index;
+            // console.log(this.$route.params.index)
+            this.active = this.$route.meta.index;
         }
     }
 </script>

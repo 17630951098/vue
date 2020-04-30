@@ -67,7 +67,11 @@
         methods:{
             remove(){
                 this.$jsCookie.remove('f_username');
-                this.$router.push('/')
+                this.$router.push({name:'Home',params:{
+                        index:0
+                }});
+                //刷新
+                this.$router.go(0);
             }
         },
         created() {
