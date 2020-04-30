@@ -68,17 +68,23 @@
             //点击热门搜索
             goHotSearch(item) {
                 // console.log(item);
-                let i = null;
+                let i = -1;
                 this.searchHistory.forEach((val, key) => {
+                    // console.log(key);
                     if (val == item) {
                         i = key;
                     }
                 });
+                console.log(i);
                 //删除原本存在的
-                this.searchHistory.splice(i, 1);
-                //添加到最前面
-                this.searchHistory.unshift(item);
+                if (i != -1) {
+                    this.searchHistory.splice(i, 1);
+                    this.searchHistory.unshift(item);
+                } else {
+                    this.searchHistory.unshift(item);
+                }
                 //存cookie
+                console.log(this.searchHistory);
                 this.$jsCookie.set("searchHistoryInfo", JSON.stringify(this.searchHistory), {expires: 365});
                 this.$router.push({
                     name: "Result",
@@ -110,7 +116,7 @@
             },
             /*确认搜索*/
             goSearch() {
-                let i = null;
+                let i = -1;
                 //判断是否为空
                 if (this.searchName == "") {
                     this.$toast("请输入搜索内容");
@@ -122,8 +128,13 @@
                         }
                     });
                     //删除原本存在的
-                    this.searchHistory.splice(i, 1);
-                    this.searchHistory.unshift(this.searchName);
+                    if (i!=-1){
+                        this.searchHistory.splice(i, 1);
+                        this.searchHistory.unshift(this.searchName);
+                    }else {
+                        this.searchHistory.unshift(this.searchName);
+                    }
+                    
                     //存cookie
                     this.$jsCookie.set("searchHistoryInfo", JSON.stringify(this.searchHistory), {expires: 7});
                     this.$router.push({
@@ -144,6 +155,7 @@
             //取cookie
             if (this.$jsCookie.get("searchHistoryInfo")) {
                 this.searchHistory = JSON.parse(this.$jsCookie.get("searchHistoryInfo"));
+                
                 this.lastHistory = this.searchHistory[0];
             }
         },

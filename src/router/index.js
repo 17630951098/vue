@@ -72,6 +72,9 @@ const routes = [
         path: "/search/result",
         name: "Result",
         component: Result,
+        meta: {
+            title: "搜索商品",
+        },
     },
     {
         path: "/cart",
