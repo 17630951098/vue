@@ -49,7 +49,7 @@
         </section>
         <div class="backTop">
             <p @click="$router.push('/cart')">
-                <span>{{getGoodList.length}}</span>
+                <span>{{cartNum}}</span>
             </p>
             <!--返回顶部-->
             <p></p>
@@ -98,7 +98,11 @@
                 },
                     this.$store.commit('addGood', this.goods);
                 //购物车商品数量
-                this.cartNum = this.getGoodList.length;
+                if (this.$jsCookie.get('f_username')){
+                    this.cartNum = this.getGoodList.length
+                }else {
+                    this.cartNum=0
+                }
             },
             //详情页
             toDetail(name) {
@@ -137,7 +141,11 @@
             //设置title
             this.$route.meta.title = this.$route.query.key;
             //购物车商品数量
-            this.cartNum = this.getGoodList.length;
+            if (this.$jsCookie.get('f_username')){
+                this.cartNum = this.getGoodList.length
+            }else {
+                this.cartNum=0
+            }
             //输入框传值
             this.key=this.$route.query.key;
             //

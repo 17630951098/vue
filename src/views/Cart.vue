@@ -185,17 +185,11 @@ export default {
     computed: {
         allPrice(){
             let totalprice=0;
-            // this.total=this.total_price;
-           /* this.getGoodList.forEach((item, index) => {
-                totalprice += item.num * item.price.substring(1, item.price.length);
-                // console.log(total)
-            });*/
             this.getGoodList.forEach((val,key)=>{
                 if (this.selectGoods.indexOf(val.id) !== -1){
                     totalprice+=val.num*val.price.substring(1,val.price.length);
                 }
             });
-            // console.log(totalprice);
             return totalprice= totalprice.toFixed(2);
         },
         ...Vuex.mapGetters(["getGoodList"]),

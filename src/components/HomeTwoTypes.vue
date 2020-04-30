@@ -33,15 +33,20 @@
         methods:{
             //加入购物车
             addToCart(item) {
-                this.$toast('加入成功');
-                this.goods = {
-                    id: '',
-                    name: item.name,
-                    num: 1,
-                    price: '£'+item.price,
-                    market_price: '£' +item.reference_price,
-                    img: item.image_url
-                },
+                if (this.$jsCookie.get('f_username')){
+                    this.$toast('加入成功');
+                    this.goods = {
+                        id: '',
+                        name: item.name,
+                        num: 1,
+                        price: '£' + item.price,
+                        market_price: '£' + item.reference_price,
+                        img: item.image_url
+                    }
+                } else {
+                    this.$toast('请先登录');
+                    this.$router.push('/login')
+                }
                     this.$store.commit('addGood', this.goods);
                 //购物车商品数量
                 // this.cartNum = this.getGoodList.length;

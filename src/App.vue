@@ -24,7 +24,7 @@
                 </template>
             </van-tabbar-item>
             
-            <van-tabbar-item :badge="getGoodList.length" to="cart">
+            <van-tabbar-item :badge="this.$jsCookie.get('f_username')?getGoodList.length:''" to="cart">
                 <span>购物篮</span>
                 <template #icon="props">
                     <img :src="icon.cart_inactive"/>
@@ -57,6 +57,7 @@
                     person: require('./assets/images/person.svg'),
                     person_inactive: require('./assets/images/person_inactive.svg'),
                 },
+                length:'',
             }
         },
         computed:{
