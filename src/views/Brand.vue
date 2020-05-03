@@ -62,7 +62,7 @@
             <div class="all">
                 <div class="title">所有品牌</div>
             </div>
-            <van-index-bar sticky sticky-offset-top="50" highlight-color="#000">
+            <van-index-bar sticky :sticky-offset-top="50" highlight-color="#000">
                 <div v-for="(item,index) in brands" :key="index">
                     <van-index-anchor  :index="item.name"/>
                     <van-cell @click="toSearch(val)"  v-if="val!=null" v-for="(val,key) in item.brand.txt" :key="key" :title="val"/>

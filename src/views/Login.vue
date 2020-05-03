@@ -100,8 +100,8 @@
                 hasBottom: false,
                 //提交
                 submit: false,
-                username: "17630951098@163.com",
-                password: "x.y.tdrhg",
+                username: "",
+                password: "",
                 obk: false,
                 type: true,
             };

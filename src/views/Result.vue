@@ -127,7 +127,7 @@
                         key: this.$route.query.key,
                     }).then(res => {
                         this.result = res.data;
-                        console.log(this.result);
+                        // console.log(this.result);
                     }).catch(err => {
                         this.$toast('404--网络错误')
                     })
@@ -175,7 +175,7 @@
                         {
                             scrollTop: 0,
                         },
-                        1000
+                        500
                     );
                 });
                 //获取标签栏距离顶部的距离

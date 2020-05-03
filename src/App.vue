@@ -1,8 +1,7 @@
 <template>
     <div id="app">
-        <div id="nav">
-        </div>
-        <router-view />
+        <div id="nav"></div>
+        <router-view/>
         <!--底部-->
         <van-tabbar v-show="$route.meta.showtabbar" v-model="active" active-color="#000" inactive-color="#000" fixed>
             <van-tabbar-item to="/">
@@ -24,7 +23,7 @@
                 </template>
             </van-tabbar-item>
             
-            <van-tabbar-item :badge="this.$jsCookie.get('f_username')?getGoodList.length:''" to="cart">
+            <van-tabbar-item :badge="this.$jsCookie.get('f_username') ? getGoodList.length : ''" to="cart">
                 <span>购物篮</span>
                 <template #icon="props">
                     <img :src="icon.cart_inactive"/>
@@ -40,35 +39,34 @@
     </div>
 </template>
 <script>
-    import Vuex from 'vuex'
+    import Vuex from "vuex";
+    
     export default {
-        data(){
-            return{
+        data() {
+            return {
                 active: 0,
                 icon: {
-                    home: require('./assets/images/home.svg'),
-                    home_inactive:require('./assets/images/home_inactive.svg'),
-                    sort: require('./assets/images/sort.svg'),
-                    sort_inactive: require('./assets/images/sort_inactive.svg'),
-                    brand: require('./assets/images/brand.svg'),
-                    brand_inactive: require('./assets/images/brand_inactive.svg'),
-                    cart: '',
-                    cart_inactive: require('./assets/images/cart_inactive.svg'),
-                    person: require('./assets/images/person.svg'),
-                    person_inactive: require('./assets/images/person_inactive.svg'),
+                    home: require("./assets/images/home.svg"),
+                    home_inactive: require("./assets/images/home_inactive.svg"),
+                    sort: require("./assets/images/sort.svg"),
+                    sort_inactive: require("./assets/images/sort_inactive.svg"),
+                    brand: require("./assets/images/brand.svg"),
+                    brand_inactive: require("./assets/images/brand_inactive.svg"),
+                    cart: "",
+                    cart_inactive: require("./assets/images/cart_inactive.svg"),
+                    person: require("./assets/images/person.svg"),
+                    person_inactive: require("./assets/images/person_inactive.svg"),
                 },
-                length:'',
-            }
+                length: "",
+            };
         },
-        computed:{
-            ...Vuex.mapGetters(['getGoodList'])
+        computed: {
+            ...Vuex.mapGetters(["getGoodList"]),
         },
         created() {
             // console.log(this.$route.params.index)
             this.active = this.$route.meta.index;
-        }
-    }
+        },
+    };
 </script>
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>
